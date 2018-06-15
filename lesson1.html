@@ -18,8 +18,8 @@
   <input type="checkbox" name="progLang2" value="PHP">PHP<br>
   <input type="checkbox" name="progLang3" value="Pyton">Pyton<br> 
   <input type="checkbox" name="progLang4" value="C++">C++<br><br>  
-Ընտրեք լեզուները, որոնց տիրապետում եք <br>
-<select placeholder="Choose a Languages" multiple>
+Ընտրեք լեզուն, որով ցանկանում եք անցկացվեն դասընթացները <br>
+<select id="select" placeholder="Choose a Languages" size="5"onclick=AlertSelectValue()>
   <option value="Afrikanns">Afrikanns</option>
   <option value="Albanian">Albanian</option>
   <option value="Arabic">Arabic</option>
@@ -98,6 +98,12 @@
 <p></p>
 <input type="submit" value="Submit"><br>
 </form>
+<script type="text/javascript">
+  function AlertSelectValue() {
+    x= document.getElementById("select").value;
+    alert(x)
+  }
+</script>
 
 </body>
 
