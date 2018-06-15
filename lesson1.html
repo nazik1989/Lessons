@@ -4,7 +4,22 @@
 <meta charset="utf-8">
 </head>
 <body>
-<select data-placeholder="Choose a Language...">
+  <h1>Խնդրում ենք մուտքագրել Ձեր անձնական տվյալները</h1>
+  <form>
+  Մուտքագրեք Ձեր անունը<br>
+  <input name="firstname" type="text"><br><br>
+    Մուտքագրեք Ձեր ազգանունը<br>
+  <input name="lastname" type="text"><br><br>
+  Ընտրեք սեռը<br>
+   <input type="radio" name="gender" value="male" checked> Արական <br>
+  <input type="radio" name="gender" value="female"> Իգական<br><br>
+Ո՞ր ծրագրավորման լեզվի դասընթացներին եք ցանկանում հաճախել:<br>
+  <input type="checkbox" name="progLang1" value="JS">JS<br>
+  <input type="checkbox" name="progLang2" value="PHP">PHP<br>
+  <input type="checkbox" name="progLang3" value="Pyton">Pyton<br> 
+  <input type="checkbox" name="progLang4" value="C++">C++<br><br>  
+Ընտրեք լեզուները, որոնց տիրապետում եք <br>
+<select placeholder="Choose a Languages" multiple>
   <option value="Afrikanns">Afrikanns</option>
   <option value="Albanian">Albanian</option>
   <option value="Arabic">Arabic</option>
@@ -77,7 +92,12 @@
   <option value="Vietnamese">Vietnamese</option>
   <option value="Welsh">Welsh</option>
   <option value="Xhosa">Xhosa</option>
-</select>
+</select><br><br>
+Կարճ տեղեկատվություն Ձեր մասին(կրթություն,աշխատանքային փորձ, հեռախոսահամար)<br>
+<input type="text" name="aboutMe" placeholder="Tell about yourself"><br>
+<p></p>
+<input type="submit" value="Submit"><br>
+</form>
 
 </body>
 
