@@ -11,15 +11,16 @@
     Մուտքագրեք Ձեր ազգանունը<br>
   <input name="lastname" type="text"><br><br>
   Ընտրեք սեռը<br>
-   <input type="radio" name="gender" value="male" checked> Արական <br>
-  <input type="radio" name="gender" value="female"> Իգական<br><br>
+   <input type="radio" id="male" name="gender" value="male" onclick="AlertRadioButtonValue()"> Արական <br>
+  <input type="radio" id="female" name="gender"
+  onclick="AlertRadioButtonValue1()" value="female"> Իգական<br><br>
 Ո՞ր ծրագրավորման լեզվի դասընթացներին եք ցանկանում հաճախել:<br>
   <input type="checkbox" name="progLang1" value="JS">JS<br>
   <input type="checkbox" name="progLang2" value="PHP">PHP<br>
   <input type="checkbox" name="progLang3" value="Pyton">Pyton<br> 
   <input type="checkbox" name="progLang4" value="C++">C++<br><br>  
 Ընտրեք լեզուն, որով ցանկանում եք անցկացվեն դասընթացները <br>
-<select id="select" placeholder="Choose a Languages" size="5"onclick=AlertSelectValue()>
+<select id="select" placeholder="Choose a Languages" size="5"onclick="AlertSelectValue()">
   <option value="Afrikanns">Afrikanns</option>
   <option value="Albanian">Albanian</option>
   <option value="Arabic">Arabic</option>
@@ -100,9 +101,21 @@
 </form>
 <script type="text/javascript">
   function AlertSelectValue() {
-    x= document.getElementById("select").value;
+    var x = document.getElementById("select").value;
     alert(x)
   }
+
+  function AlertRadioButtonValue()  {
+  var x = document.getElementById("male").value;
+  alert(x)
+  }
+   function AlertRadioButtonValue1()  {
+  var x = document.getElementById("female").value;
+  alert(x)
+  } 
+
+
+         
 </script>
 
 </body>
