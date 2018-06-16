@@ -4,23 +4,33 @@
 <meta charset="utf-8">
 </head>
 <body>
+<div>
   <h1>Խնդրում ենք մուտքագրել Ձեր անձնական տվյալները</h1>
-  <form>
+  <div>
+  <form id="myForm">
+    <div>
   Մուտքագրեք Ձեր անունը<br>
-  <input name="firstname" type="text"><br><br>
+  <input name="firstname" type="text" required><br><br>
     Մուտքագրեք Ձեր ազգանունը<br>
-  <input name="lastname" type="text"><br><br>
+  <input name="lastname" type="text" required><br><br>
+    </div>
+
+    <div>
   Ընտրեք սեռը<br>
-   <input type="radio" id="male" name="gender" value="male" onclick="AlertRadioButtonValue()"> Արական <br>
+   <input type="radio" id="male" name="gender" value="male" onclick="AlertRadioButtonValue(this)"> Արական <br>
   <input type="radio" id="female" name="gender"
-  onclick="AlertRadioButtonValue1()" value="female"> Իգական<br><br>
+  onclick="AlertRadioButtonValue(this)" value="female"> Իգական<br><br>
+    </div>
+    <div id="checkboxDiv" >
 Ո՞ր ծրագրավորման լեզվի դասընթացներին եք ցանկանում հաճախել:<br>
-  <input type="checkbox" name="progLang1" value="JS">JS<br>
-  <input type="checkbox" name="progLang2" value="PHP">PHP<br>
-  <input type="checkbox" name="progLang3" value="Pyton">Pyton<br> 
-  <input type="checkbox" name="progLang4" value="C++">C++<br><br>  
+  <input id = "JS" type="checkbox" name="progLang1" value="JS"onclick = "CheckboxValueChange()">JS<br>
+  <input id = "PHP" type="checkbox" name="progLang2" value="PHP"onclick = "CheckboxValueChange()">PHP<br>
+  <input id = "Pyton" type="checkbox" name="progLang3" value="Pyton"onclick = "CheckboxValueChange()" >Pyton<br> 
+  <br><br>
+  </div>
+  <div>  
 Ընտրեք լեզուն, որով ցանկանում եք անցկացվեն դասընթացները <br>
-<select id="select" placeholder="Choose a Languages" size="5"onclick="AlertSelectValue()">
+<select id="select" placeholder="Choose a Languages" size="5" multiple onclick="AlertSelectValue()">
   <option value="Afrikanns">Afrikanns</option>
   <option value="Albanian">Albanian</option>
   <option value="Arabic">Arabic</option>
@@ -94,29 +104,36 @@
   <option value="Welsh">Welsh</option>
   <option value="Xhosa">Xhosa</option>
 </select><br><br>
+    </div>
+    <div>
 Կարճ տեղեկատվություն Ձեր մասին(կրթություն,աշխատանքային փորձ, հեռախոսահամար)<br>
-<input type="text" name="aboutMe" placeholder="Tell about yourself"><br>
-<p></p>
+<input type="text" name="aboutMe" placeholder="Tell about yourself" required><br>
+    </div>
+    <div>
+    <p></p>
+    </div>
+
 <input type="submit" value="Submit"><br>
 </form>
+  </div>
+</div>
 <script type="text/javascript">
   function AlertSelectValue() {
     var x = document.getElementById("select").value;
-    alert(x)
+    alert(x)// multiple depqum chi ashxatum
   }
 
-  function AlertRadioButtonValue()  {
-  var x = document.getElementById("male").value;
-  alert(x)
+  function AlertRadioButtonValue(x)  {
+  alert(x.value)
   }
-   function AlertRadioButtonValue1()  {
-  var x = document.getElementById("female").value;
-  alert(x)
-  } 
+   
+
 
 
          
 </script>
+
+
 
 </body>
 
