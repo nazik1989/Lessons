@@ -17,20 +17,20 @@
 
     <div>
   Ընտրեք սեռը<br>
-   <input type="radio" id="male" name="gender" value="male" onclick="AlertRadioButtonValue(this)"> Արական <br>
+   <input type="radio" id="male" name="gender" value="male" onclick="AlertChangeElementValue(this)"> Արական <br>
   <input type="radio" id="female" name="gender"
-  onclick="AlertRadioButtonValue(this)" value="female"> Իգական<br><br>
+  onclick="AlertChangeElementValue(this)" value="female"> Իգական<br><br>
     </div>
     <div id="checkboxDiv" >
 Ո՞ր ծրագրավորման լեզվի դասընթացներին եք ցանկանում հաճախել:<br>
-  <input id = "JS" type="checkbox" name="progLang1" value="JS"onclick = "CheckboxValueChange()">JS<br>
-  <input id = "PHP" type="checkbox" name="progLang2" value="PHP"onclick = "CheckboxValueChange()">PHP<br>
-  <input id = "Pyton" type="checkbox" name="progLang3" value="Pyton"onclick = "CheckboxValueChange()" >Pyton<br> 
+  <input id = "JS" type="checkbox" name="progLang1" value="JS"onclick = "AlertChangeElementValue(this)">JS<br>
+  <input id = "PHP" type="checkbox" name="progLang2" value="PHP"onclick = "AlertChangeElementValue(this)">PHP<br>
+  <input id = "Pyton" type="checkbox" name="progLang3" value="Pyton"onclick = "AlertChangeElementValue(this)" >Pyton<br> 
   <br><br>
   </div>
   <div>  
 Ընտրեք լեզուն, որով ցանկանում եք անցկացվեն դասընթացները <br>
-<select id="select" placeholder="Choose a Languages" size="5" multiple onclick="AlertSelectValue()">
+<select id="select" placeholder="Choose a Languages" size="5" multiple onclick="AlertChangeElementValue(this)">
   <option value="Afrikanns">Afrikanns</option>
   <option value="Albanian">Albanian</option>
   <option value="Arabic">Arabic</option>
@@ -118,12 +118,8 @@
   </div>
 </div>
 <script type="text/javascript">
-  function AlertSelectValue() {
-    var x = document.getElementById("select").value;
-    alert(x)// multiple depqum chi ashxatum
-  }
 
-  function AlertRadioButtonValue(x)  {
+  function AlertChangeElementValue(x)  { 
   alert(x.value)
   }
    
