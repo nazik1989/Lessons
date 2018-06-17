@@ -34,20 +34,20 @@
 
     <div>
   Ընտրեք սեռը<br>
-   <input type="radio" id="male" name="gender" value="male" onclick="AlertChangeElementValue(this)"> Արական <br>
+   <input type="radio" id="male" name="gender" value="male" onclick="AlertChangeRadioValue(this)"> Արական <br>
   <input type="radio" id="female" name="gender"
-  onclick="AlertChangeElementValue(this)" value="female"> Իգական<br><br>
+  onclick="AlertChangeRadioValue(this)" value="female"> Իգական<br><br>
     </div>
     <div id="checkboxDiv" >
 Ո՞ր ծրագրավորման լեզվի դասընթացներին եք ցանկանում հաճախել:<br>
-  <input id = "JS" type="checkbox" name="progLang1" value="JS"onclick = "AlertChangeElementValue(this)">JS<br>
-  <input id = "PHP" type="checkbox" name="progLang2" value="PHP"onclick = "AlertChangeElementValue(this)">PHP<br>
-  <input id = "Pyton" type="checkbox" name="progLang3" value="Pyton"onclick = "AlertChangeElementValue(this)" >Pyton<br> 
+  <input class="demo" type="checkbox" name="progLang1" value="JS"onclick = "AlertChangeCheckboxValue()">JS<br>
+  <input class="demo" type="checkbox" name="progLang2" value="PHP"onclick = "AlertChangeCheckboxValue()">PHP<br>
+  <input class = "demo" type="checkbox" name="progLang3" value="Pyton"onclick = "AlertChangeCheckboxValue()" >Pyton<br> 
   <br><br>
   </div>
   <div>  
 Ընտրեք լեզուն, որով ցանկանում եք անցկացվեն դասընթացները <br>
-<select id="select" placeholder="Choose a Languages" size="5" multiple onclick="AlertChangeElementValue(this)">
+<select id="select" placeholder="Choose a Languages" size="5" multiple onclick="AlertChangeRadioValue(this)">
   <option value="Afrikanns">Afrikanns</option>
   <option value="Albanian">Albanian</option>
   <option value="Arabic">Arabic</option>
@@ -124,10 +124,10 @@
     </div>
     <div>
 Կարճ տեղեկատվություն Ձեր մասին(կրթություն,աշխատանքային փորձ, հեռախոսահամար)<br>
-<input type="text" name="aboutMe" placeholder="Tell about yourself" required><br>
+<input id="aboutMe" onmouseover="" ="aboutMeFunct()" type="text" name="aboutMe" placeholder="Tell about yourself" value="text" required><br>
     </div>
-    <div>
-    <p></p>
+    <div >
+    <p id = "aboutMeCopy"></p>
     </div>
 
 <input type="submit" value="Submit"><br>
@@ -143,12 +143,25 @@
 </div>
 <script type="text/javascript">
 
-  function AlertChangeElementValue(x)  { 
+  function AlertChangeRadioValue(x)  { 
   alert(x.value)
   }
+  function AlertChangeCheckboxValue()   {
+var elems = document.getElementsByClassName("demo");
+var text = "Դուք ընտրել եք";
+for(var i = 0; i < elems.length; i++){
+
+if (document.getElementsByClassName("demo")[i].checked==true)
+{text = text + document.getElementsByClassName("demo")[i].value+" ";}}
+document.getElementsByClassName("demo")[i].onclick = alert(text);
+}
 
   function ShowHideFunctionality()  {
     document.getElementById("govazd").style.display='none';
+  }
+  function aboutMeFunct()  {
+    document.getElementById("aboutMeCopy" ).innerHTML = 
+    document.getElementById("aboutMe" ).value
   }
    
 
