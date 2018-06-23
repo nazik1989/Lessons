@@ -1,26 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="AjaxJqueryMin.js"></script>
+	<meta charset="UTF-8">
+	<script src="AjaxJqueryMin.js"></script>
 
-<script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
 
-    $.getJSON('countries.json', function (data,	success) {
-    	var text = "<select id='selectId'>";
-        for (var i = 0; i < data.length; i++) {
-            text += "<option>"+data[i]+"</option>"};
-            text +="</select>";
-            $('#demo').html(text);
-            $('#paragraf').html($('#selectId').val())
-            
-        
-    });
-</script>
+	#paragraf {color:red}
+	select
+
+</style>
+
 </head>
 <body>
-	<div id='demo'>
-	</div>
-<p id="paragraf"></p>
+	<div class="container center_div">
+		<h1>Ընտրեք երկիրը, որտեղ կցանկանայիք ապրել</h1>
+	</div><br><br>
+	<div class="container center_div" id='demo'>
+	</div><br><br>
 
+	<div class="container center_div">
+		<p>Դուք ընտրել եք</p>
+	<h2 id="paragraf"></h2>
+		<p>երկիրը</p>
+	</div>
+
+	<script>
+
+        $.getJSON('countries.json', function (data,	success) {
+            var text = "<select class='selectpicker' data-style='btn-primary' id='selectId' multiple>";
+            for (var i = 0; i < data.length; i++) {
+                text += "<option>"+data[i]+"</option>"};
+            text +="</select>";
+            $('#demo').html(text);
+            // $('#paragraf').html($('#selectId').val())
+            $('#selectId').click(function(){
+                $('#paragraf').html($('#selectId').val())
+
+            });
+
+
+        });
+	</script>
 </body>
 </html>
