@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div class="container center_div">
-		<h1>Ընտրեք երկիրը, որտեղ կցանկանայիք ապրել</h1>
+		<h1>Ընտրեք երկիր(ներ)ը, որտեղ կցանկանայիք ապրել</h1>
 	</div><br><br>
 	<div class="container center_div" id='demo'>
 	</div><br><br>
@@ -24,7 +24,7 @@
 	<div class="container center_div">
 		<p>Դուք ընտրել եք</p>
 	<h2 id="paragraf"></h2>
-		<p>երկիրը</p>
+		<p>երկիր(ներ)ը</p>
 	</div>
 
 	<script>
@@ -37,7 +37,7 @@
             $('#demo').html(text);
             // $('#paragraf').html($('#selectId').val())
             $('#selectId').click(function(){
-                $('#paragraf').html($('#selectId').val())
+                $('#paragraf').html($('#selectId').val().join(","))
 
             });
 
