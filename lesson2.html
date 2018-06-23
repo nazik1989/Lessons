@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+    $.getJSON('countries.json', function (data,	success) {
+    	var text = "<select id='selectId'>";
+        for (var i = 0; i < data.length; i++) {
+            text += "<option>"+data[i]+"</option>"};
+            text +="</select>";
+            $('#demo').html(text);
+            $('#paragraf').html($('#selectId').val())
+            
+        
+    });
+</script>
+</head>
+<body>
+	<div id='demo'>
+	</div>
+<p id="paragraf"></p>
+
+</body>
+</html>
