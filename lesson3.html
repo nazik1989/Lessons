@@ -8,21 +8,26 @@ function Children(country) {
 var childname = "արժեք";
 var childNameArray = [];
 this.setchildname = function (name){childname=name;childNameArray.push(childname);};
-
-this.getchildname = function(){return childNameArray[0]+childNameArray[1]}
+this.getchildnameArray = function(){return this.childNameArrayCopy=childNameArray}
 var surname = "";
 // this.setsurname =
 
 };
 
-var child = new Children("Armenia");
-child.setchildname("a");
-child.setchildname("b");
-child.surname = "aa";
-child.fathername = "aaa";
-child.mothername = "aaaa";
-child.bornYear = 2012;
-alert(child.getchildname());
+var children = new Children("Armenia");
+children.setchildname("անուն-1");
+children.setchildname("անուն-2");
+children.setchildname("անուն-3");
+children.setchildname("անուն-4");
+children.setchildname("անուն-5");
+children.setchildname("անուն-6");
+children.surname = "aa";
+children.fathername = "aaa";
+children.mothername = "aaaa";
+children.bornYear = 2012;
+children.childNameArrayCopy = []
+alert(children.getchildnameArray());
+document.write(children.childNameArrayCopy[0]);
 
 
 
