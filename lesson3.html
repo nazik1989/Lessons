@@ -5,33 +5,55 @@
 <script>
 function Children(country) {
 
-var childname = "արժեք";
+var childname = "";
 var childNameArray = [];
-this.setchildname = function (name){childname=name;childNameArray.push(childname);};
-this.getchildnameArray = function(){return this.childNameArrayCopy=childNameArray}
+this.setchildname = function (argument){childname=argument;childNameArray.push(childname);};
+this.getchildnameArray = function(){return this.childNameArrayCopy=childNameArray};
 var surname = "";
-// this.setsurname =
-
+var surnameArray = [];
+this.setsurname = function (argument){surname=argument;surnameArray.push(surname);};
+this.getsurnameArray = function(){return this.surnameArrayCopy=surnameArray};
+var fathername = "";
+var fathernameArray = [];
+this.setfathername = function (argument){fathername=argument;fathernameArray.push(fathername);};
+this.getfathernameArray = function(){return this.fathernameArrayCopy=fathernameArray};
+var mothername = "";
+var mothernameArray = [];
+this.setmothername = function (argument){mothername=argument;mothernameArray.push(mothername);};
+this.getmothernameArray = function(){return this.mothernameArrayCopy=mothernameArray};
+var bornYear = "";
+var bornYearArray = [];
+this.setbornYear = function (argument){bornYear=argument;bornYearArray.push(bornYear);};
+this.getbornYearArray = function(){return this.bornYearArrayCopy=bornYearArray};
 };
 
 var children = new Children("Armenia");
 children.setchildname("անուն-1");
 children.setchildname("անուն-2");
-children.setchildname("անուն-3");
-children.setchildname("անուն-4");
-children.setchildname("անուն-5");
-children.setchildname("անուն-6");
-children.surname = "aa";
-children.fathername = "aaa";
-children.mothername = "aaaa";
-children.bornYear = 2012;
-children.childNameArrayCopy = []
-alert(children.getchildnameArray());
-document.write(children.childNameArrayCopy[0]);
+children.setsurname("ազգանուն-1");
+children.setsurname("ազգանուն-2");
+children.setfathername("հայրանուն-1");
+children.setfathername("հայրանուն-2");
+children.setmothername("մոր անուն-1");
+children.setmothername("մոր անուն-2");
+children.setbornYear(2011);
+children.setbornYear(2012);
+children.childNameArrayCopy = [];
+children.surnameArrayCopy = [];
+children.fathernameArrayCopy = [];
+children.mothernameArrayCopy = [];
+children.bornYearArrayCopy = [];
+children.getchildnameArray();
+children.getsurnameArray();
+children.getfathernameArray();
+children.getmothernameArray();
+children.getbornYearArray();
+document.write(children.childNameArrayCopy[0] +
+	children.surnameArrayCopy[0]+
+	children.fathernameArrayCopy[0]+
+	children.mothernameArrayCopy[0]+
+	children.bornYearArrayCopy[0]);
 
-
-
-  
 
 </script>
 </body>
