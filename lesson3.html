@@ -2,6 +2,11 @@
 <!DOCTYPE html>
 <html>
 <body>
+	<form>
+		<input type="text" name="childname" id="childnameInput">
+		<input type="Submit" name="Submit" id="Submit">
+	</form>
+	<p id="demo"></p>
 <script>
 function Children(country) {
 
@@ -25,19 +30,23 @@ var bornYear = "";
 var bornYearArray = [];
 this.setbornYear = function (argument){bornYear=argument;bornYearArray.push(bornYear);};
 this.getbornYearArray = function(){return this.bornYearArrayCopy=bornYearArray};
+
+this.myFunction=function() {document.write(
+	this.childNameArrayCopy[0] +
+	this.surnameArrayCopy[0]+
+	this.fathernameArrayCopy[0]+
+	this.mothernameArrayCopy[0]+
+	this.bornYearArrayCopy[0])};
 };
 
 var children = new Children("Armenia");
-children.setchildname("անուն-1");
-children.setchildname("անուն-2");
+var argumentOfsetchildname = document.getElementById("childnameInput").value;
+children.setchildname(argumentOfsetchildname);
 children.setsurname("ազգանուն-1");
-children.setsurname("ազգանուն-2");
 children.setfathername("հայրանուն-1");
-children.setfathername("հայրանուն-2");
 children.setmothername("մոր անուն-1");
-children.setmothername("մոր անուն-2");
 children.setbornYear(2011);
-children.setbornYear(2012);
+
 children.childNameArrayCopy = [];
 children.surnameArrayCopy = [];
 children.fathernameArrayCopy = [];
@@ -48,11 +57,11 @@ children.getsurnameArray();
 children.getfathernameArray();
 children.getmothernameArray();
 children.getbornYearArray();
-document.write(children.childNameArrayCopy[0] +
-	children.surnameArrayCopy[0]+
-	children.fathernameArrayCopy[0]+
-	children.mothernameArrayCopy[0]+
-	children.bornYearArrayCopy[0]);
+// document.getElementById("myBtn").addEventListener("click", myFunction)
+
+
+document.getElementById("Submit").addEventListener("click", children.myFunction);
+
 
 
 </script>
