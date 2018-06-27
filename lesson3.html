@@ -1,18 +1,17 @@
-
 <!DOCTYPE html>
 <html>
 <body>
-	<form>
-		<input type="text" name="childname" id="childnameInput">
-		<input type="Submit" name="Submit" id="Submit">
-	</form>
-	<p id="demo"></p>
+<form>
+<input type="text" name="childname" id="childnameInput">
+<input type="Submit" name="Submit" id="Submit">
+</form>
+<p id="demo"></p>
 <script>
 function Children(country) {
 
 var childname = "";
 var childNameArray = [];
-this.setchildname = function (argument){childname=argument;childNameArray.push(childname);};
+this.setchildname = function (argumentOfsetchildname){childname=argumentOfsetchildname;childNameArray.push(childname);};
 this.getchildnameArray = function(){return this.childNameArrayCopy=childNameArray};
 var surname = "";
 var surnameArray = [];
@@ -29,8 +28,7 @@ this.getmothernameArray = function(){return this.mothernameArrayCopy=mothernameA
 var bornYear = "";
 var bornYearArray = [];
 this.setbornYear = function (argument){bornYear=argument;bornYearArray.push(bornYear);};
-this.getbornYearArray = function(){return this.bornYearArrayCopy=bornYearArray};
-
+this.getbornYearArray = function(){this.setchildname(argumentOfsetchildname); this.bornYearArrayCopy=bornYearArray};
 this.myFunction=function() {document.write(
 	this.childNameArrayCopy[0] +
 	this.surnameArrayCopy[0]+
@@ -38,6 +36,10 @@ this.myFunction=function() {document.write(
 	this.mothernameArrayCopy[0]+
 	this.bornYearArrayCopy[0])};
 };
+
+
+	 
+
 
 var children = new Children("Armenia");
 var argumentOfsetchildname = document.getElementById("childnameInput").value;
@@ -52,22 +54,17 @@ children.surnameArrayCopy = [];
 children.fathernameArrayCopy = [];
 children.mothernameArrayCopy = [];
 children.bornYearArrayCopy = [];
-children.getchildnameArray();
+
 children.getsurnameArray();
 children.getfathernameArray();
 children.getmothernameArray();
 children.getbornYearArray();
 // document.getElementById("myBtn").addEventListener("click", myFunction)
 
-
+document.getElementById("Submit").addEventListener("click", children.getchildnameArray);
 document.getElementById("Submit").addEventListener("click", children.myFunction);
-
-
 
 </script>
 </body>
 
 </html>
-
-
-
