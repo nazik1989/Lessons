@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
 <body>
-<form>
-<input type="text" name="childname" id="childnameInput">
-<input type="Submit" name="Submit" id="Submit">
-</form>
-<p id="demo"></p>
+	<table id="myTable" cellpadding="2" cellspacing="2" border="1" >
+		
+	</table>
 <script>
 function Children(country) {
 
 var childname = "";
 var childNameArray = [];
-this.setchildname = function (argumentOfsetchildname){childname=argumentOfsetchildname;childNameArray.push(childname);};
+this.setchildname = function (argument){childname=argument;childNameArray.push(childname);};
 this.getchildnameArray = function(){return this.childNameArrayCopy=childNameArray};
 var surname = "";
 var surnameArray = [];
@@ -28,26 +26,42 @@ this.getmothernameArray = function(){return this.mothernameArrayCopy=mothernameA
 var bornYear = "";
 var bornYearArray = [];
 this.setbornYear = function (argument){bornYear=argument;bornYearArray.push(bornYear);};
-this.getbornYearArray = function(){this.setchildname(argumentOfsetchildname); this.bornYearArrayCopy=bornYearArray};
-this.myFunction=function() {document.write(
-	this.childNameArrayCopy[0] +
-	this.surnameArrayCopy[0]+
-	this.fathernameArrayCopy[0]+
-	this.mothernameArrayCopy[0]+
-	this.bornYearArrayCopy[0])};
+this.getbornYearArray = function(){return this.bornYearArrayCopy=bornYearArray};
+
 };
 
 
-	 
-
-
 var children = new Children("Armenia");
-var argumentOfsetchildname = document.getElementById("childnameInput").value;
-children.setchildname(argumentOfsetchildname);
+
+children.setchildname("անուն-1");
 children.setsurname("ազգանուն-1");
 children.setfathername("հայրանուն-1");
 children.setmothername("մոր անուն-1");
 children.setbornYear(2011);
+
+children.setchildname("անուն-2");
+children.setsurname("ազգանուն-2");
+children.setfathername("հայրանուն-2");
+children.setmothername("մոր անուն-2");
+children.setbornYear(2012);
+
+children.setchildname("անուն-3");
+children.setsurname("ազգանուն-3");
+children.setfathername("հայրանուն-3");
+children.setmothername("մոր անուն-3");
+children.setbornYear(2013);
+
+children.setchildname("անուն-4");
+children.setsurname("ազգանուն-4");
+children.setfathername("հայրանուն-4");
+children.setmothername("մոր անուն-4");
+children.setbornYear(2014);
+
+children.setchildname("անուն-5");
+children.setsurname("ազգանուն-5");
+children.setfathername("հայրանուն-5");
+children.setmothername("մոր անուն-5");
+children.setbornYear(2015);
 
 children.childNameArrayCopy = [];
 children.surnameArrayCopy = [];
@@ -55,14 +69,59 @@ children.fathernameArrayCopy = [];
 children.mothernameArrayCopy = [];
 children.bornYearArrayCopy = [];
 
+children.getchildnameArray();
 children.getsurnameArray();
 children.getfathernameArray();
 children.getmothernameArray();
 children.getbornYearArray();
-// document.getElementById("myBtn").addEventListener("click", myFunction)
+/* 
+var myChildrens;
+            for (var j = 0; j < children.getchildnameArray.length; j++) {
+                myChildrens = {
+                    anun: children.childNameArrayCopy[j],
+                    azganun: children.surnameArrayCopy[j],
+                    hayranun: children.fathernameArrayCopy[j],
+                    moranun: children.mothernameArrayCopy[j],
+                    borntiv: children.bornYearArrayCopy[j],
+                };
+                var table = document.getElementById("myTable");
+                var row = table.insertRow(j);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                var cell5 = row.insertCell(4);
 
-document.getElementById("Submit").addEventListener("click", children.getchildnameArray);
-document.getElementById("Submit").addEventListener("click", children.myFunction);
+                cell1.innerHTML = myChildrens.anun,
+                cell2.innerHTML = myChildrens.azganun,
+                cell3.innerHTML = myChildrens.hayranun,
+                cell4.innerHTML = myChildrens.moranun,
+                cell5.innerHTML = myChildrens.borntiv;
+                
+
+            };
+*/
+
+/*
+document.write(
+	for (var j = 0; j < children.getchildnameArray.length; j++) {
+
+
+	children.childNameArrayCopy[j] +"<br>"+
+	children.surnameArrayCopy[j]+"<br>"+
+	children.fathernameArrayCopy[j]+"<br>"+
+	children.mothernameArrayCopy[j]+"<br>"+
+	children.bornYearArrayCopy[j]});
+*/
+
+document.write(
+	"Չորրորդ օբյեկտի տվյաներն են՝"+"<br>"+
+	children.childNameArrayCopy[3] +"<br>"+
+	children.surnameArrayCopy[3]+"<br>"+
+	children.fathernameArrayCopy[3]+"<br>"+
+	children.mothernameArrayCopy[3]+"<br>"+
+	children.bornYearArrayCopy[3])	
+
 
 </script>
 </body>
