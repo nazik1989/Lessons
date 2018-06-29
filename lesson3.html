@@ -4,13 +4,22 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+  table {
+    display:none;
+  }    
+  </style>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
-  <table class="table table-bordered">
+<div class="container" >
+    <div  class="container" id="empty" style="padding:5px;background-color:LightSeaGreen;color:white;box-shadow: 10px; border-radius:6px">
+     <h1>There are not products. </h1>
+     <h1>For add products, click in the button "Create product"</h1>  
+    </div>
+  <table id="table"class="table table-bordered">
     <caption>My products</caption>
     <thead>
       <tr>
@@ -24,8 +33,9 @@
         <th>Action Edit</th>
       </tr>
     </thead>
-    <tbody>
-        <th id="th1">1</th>
+    <tbody id="tbody">
+        
+    <!--  <th id="th1">1</th>
         <th id="th2">նուռ</th>
         <th id="th3">1200</th>
         <th id="th4">29.06.2018</th>
@@ -33,6 +43,7 @@
         <th>թարմ</th>
         <th>Button Delete</th>
         <th>Button Edit</th>
+        -->
     </tbody>
   </table>
   <!-- Trigger the modal with a button -->
@@ -95,22 +106,49 @@
         var productArray = [];
         function saveProductInArray()   {
 
-            var product  =   {};
-            product.name=document.getElementById("name").value ;
-            product.price=document.getElementById("price").value ;
-            
-            product.dateOfmanufacture= document.getElementById("dateOfmanufacture").value ;
-            product.expirationDate= document.getElementById("expirationDate").value ;
+        var product  =   {};
+        product.name=document.getElementById("name").value ;
+        product.price=document.getElementById("price").value ;
+product.dateOfmanufacture= document.getElementById("dateOfmanufacture").value ;
+    product.expirationDate= document.getElementById("expirationDate").value ;
+        productArray.push(product);
 
-          productArray.push(product);
-          for (i=0; i<productArray.length;i++){
-          document.getElementById("th1").innerHTML+=i+1; 
+    for (i=0; i<productArray.length;i++){
+var tbody = $('#tbody');
+var text  = 'My Data in td';
+var trIdVar = 'trId'+i; 
+var idForId = "id";
+var nameForId="name";
+var priceForId = "price";
+var manufForId="manuf";
+var expForId = "exp";
+var statForID = "stat";
+var delForId="del";
+var editForId="edit";    
+var tr = (
+  '<tr id="' + trIdVar + '">' +
+    '<td id="' + trIdVar +idForId+ '">'+ trIdVar +idForId +'</td>'+
+    '<td id="' + trIdVar +nameForId+ '">'+ trIdVar +nameForId+'</td>'+
+    '<td id="' + trIdVar +priceForId+ '">'+ trIdVar +priceForId+'</td>'+
+    '<td id="' + trIdVar +manufForId+ '">'+ trIdVar +manufForId+'</td>'+
+    '<td id="' + trIdVar +expForId+ '">'+ trIdVar +expForId+'</td>'+
+    '<td id="' + trIdVar +statForID+ '">'+ trIdVar +statForID+'</td>'+
+    '<td id="' + trIdVar +delForId+ '">'+ trIdVar +delForId+'</td>'+
+    '<td id="' + trIdVar +editForId+ '">'+ trIdVar +editForId+'</td>'+
+    
+  '</tr>'
+);
+$('#tbody').append(tr);
+};
+          
+          document.getElementById("table").style.display = "block";
+          document.getElementById("empty").style.display = "none";
+}
+                  /*document.getElementById("th1").innerHTML+=i+1; 
           document.getElementById("th2").innerHTML+=productArray[i].name ;
           document.getElementById("th3").innerHTML+=productArray[i].price ;
           document.getElementById("th4").innerHTML+=productArray[i].dateOfmanufacture ;
-          document.getElementById("th5").innerHTML+=productArray[i].expirationDate ; }   
-
-        }
+          document.getElementById("th5").innerHTML+=productArray[i].expirationDate ; */
     </script>
 
 
