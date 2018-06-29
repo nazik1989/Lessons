@@ -9,11 +9,34 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <div class="container">
-  <h2 id ="header">Div petqa sarqem</h2>
+  <table class="table table-bordered">
+    <caption>My products</caption>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th >Name</th>
+        <th>Price</th>
+        <th>Date Of Manufacture</th>
+        <th>Expiration Date</th>
+        <th>Status</th>
+        <th>Action Delete</th>
+        <th>Action Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+        <th id="th1">1</th>
+        <th id="th2">նուռ</th>
+        <th id="th3">1200</th>
+        <th id="th4">29.06.2018</th>
+        <th id="th5">7օր</th>
+        <th>թարմ</th>
+        <th>Button Delete</th>
+        <th>Button Edit</th>
+    </tbody>
+  </table>
   <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Create data</button>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Create product</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -25,18 +48,41 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Modal Header</h4>
         </div>
-        <div class="modal-body">
-                  <form>
-            Անուն<input name="name" id = "name"><br><br>
-            Գին<input name="price" id = "price"><br><br>
-            Ժամկետ<input name="expirationDate" id = "expirationDate"><br><br>
-            Արտադրման ամսաթիվ<input name="nameProduct" id = "nameProduct"><br><br>
-           
-       
-        </div>
-        <div class="modal-footer">
-          <button id="button" onclick="saveProductInArray()" type="button" class="btn btn-default" data-dismiss="modal">Save data</button>
-        </div>
+    <div class="modal-body">
+        <form class="form-horizontal" action="/action_page.php">
+            <div class="form-group">
+            <label class="control-label col-sm-2" for="name">Name:</label>
+                <div class="col-sm-10">
+                <input  class="form-control" id="name" placeholder="Enter name" name="name">
+                </div>
+            </div>
+
+            <div class="form-group">
+            <label class="control-label col-sm-2" for="price">Price:</label>
+                <div class="col-sm-10">
+                <input  class="form-control" id="price" placeholder="Enter price" name="price">
+                </div>
+            </div>
+
+            <div class="form-group">
+            <label class="control-label col-sm-2" for="dateOfmanufacture">Date Of Manufacture:</label>
+                <div class="col-sm-10">
+                <input  class="form-control" id="dateOfmanufacture" placeholder="Enter date of manufacture" name="dateOfmanufacture">
+                </div>
+            </div>
+
+            <div class="form-group">
+            <label class="control-label col-sm-2" for="expirationDate">Expiration Date:</label>
+                <div class="col-sm-10">
+                <input  class="form-control" id="expirationDate" placeholder="Enter expiration date" name="expirationDate">
+                </div>
+            </div>
+    </div>
+            <div class="modal-footer">
+                <div class="col-sm-offset-2 col-sm-10">
+        <button id="button" onclick="saveProductInArray()" type="submit" class="btn btn-info btn-lg" data-dismiss="modal">Save</button>
+                </div>
+            </div>
          </form>
       </div>
       
@@ -52,14 +98,19 @@
             var product  =   {};
             product.name=document.getElementById("name").value ;
             product.price=document.getElementById("price").value ;
+            
+            product.dateOfmanufacture= document.getElementById("dateOfmanufacture").value ;
             product.expirationDate= document.getElementById("expirationDate").value ;
-            product.dateOfmanufacture= document.getElementById("nameProduct").value ;
 
           productArray.push(product);
-          
-          document.getElementById("header").innerHTML=productArray[0].name ;  }   
+          for (i=0; i<productArray.length;i++){
+          document.getElementById("th1").innerHTML+=i+1; 
+          document.getElementById("th2").innerHTML+=productArray[i].name ;
+          document.getElementById("th3").innerHTML+=productArray[i].price ;
+          document.getElementById("th4").innerHTML+=productArray[i].dateOfmanufacture ;
+          document.getElementById("th5").innerHTML+=productArray[i].expirationDate ; }   
 
-        
+        }
     </script>
 
 
