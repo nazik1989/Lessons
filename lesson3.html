@@ -1,129 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 <body>
-	<table id="myTable" cellpadding="2" cellspacing="2" border="1" >
-		
-	</table>
-<script>
-function Children(country) {
 
-var childname = "";
-var childNameArray = [];
-this.setchildname = function (argument){childname=argument;childNameArray.push(childname);};
-this.getchildnameArray = function(){return this.childNameArrayCopy=childNameArray};
-var surname = "";
-var surnameArray = [];
-this.setsurname = function (argument){surname=argument;surnameArray.push(surname);};
-this.getsurnameArray = function(){return this.surnameArrayCopy=surnameArray};
-var fathername = "";
-var fathernameArray = [];
-this.setfathername = function (argument){fathername=argument;fathernameArray.push(fathername);};
-this.getfathernameArray = function(){return this.fathernameArrayCopy=fathernameArray};
-var mothername = "";
-var mothernameArray = [];
-this.setmothername = function (argument){mothername=argument;mothernameArray.push(mothername);};
-this.getmothernameArray = function(){return this.mothernameArrayCopy=mothernameArray};
-var bornYear = "";
-var bornYearArray = [];
-this.setbornYear = function (argument){bornYear=argument;bornYearArray.push(bornYear);};
-this.getbornYearArray = function(){return this.bornYearArrayCopy=bornYearArray};
+<div class="container">
+  <h2 id ="header">Div petqa sarqem</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Create data</button>
 
-};
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+                  <form>
+            Անուն<input name="name" id = "name"><br><br>
+            Գին<input name="price" id = "price"><br><br>
+            Ժամկետ<input name="expirationDate" id = "expirationDate"><br><br>
+            Արտադրման ամսաթիվ<input name="nameProduct" id = "nameProduct"><br><br>
+           
+       
+        </div>
+        <div class="modal-footer">
+          <button id="button" onclick="saveProductInArray()" type="button" class="btn btn-default" data-dismiss="modal">Save data</button>
+        </div>
+         </form>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+<script type="text/javascript" >
 
+        var productArray = [];
+        function saveProductInArray()   {
 
-var children = new Children("Armenia");
+            var product  =   {};
+            product.name=document.getElementById("name").value ;
+            product.price=document.getElementById("price").value ;
+            product.expirationDate= document.getElementById("expirationDate").value ;
+            product.dateOfmanufacture= document.getElementById("nameProduct").value ;
 
-children.setchildname("անուն-1");
-children.setsurname("ազգանուն-1");
-children.setfathername("հայրանուն-1");
-children.setmothername("մոր անուն-1");
-children.setbornYear(2011);
+          productArray.push(product);
+          
+          document.getElementById("header").innerHTML=productArray[0].name ;  }   
 
-children.setchildname("անուն-2");
-children.setsurname("ազգանուն-2");
-children.setfathername("հայրանուն-2");
-children.setmothername("մոր անուն-2");
-children.setbornYear(2012);
-
-children.setchildname("անուն-3");
-children.setsurname("ազգանուն-3");
-children.setfathername("հայրանուն-3");
-children.setmothername("մոր անուն-3");
-children.setbornYear(2013);
-
-children.setchildname("անուն-4");
-children.setsurname("ազգանուն-4");
-children.setfathername("հայրանուն-4");
-children.setmothername("մոր անուն-4");
-children.setbornYear(2014);
-
-children.setchildname("անուն-5");
-children.setsurname("ազգանուն-5");
-children.setfathername("հայրանուն-5");
-children.setmothername("մոր անուն-5");
-children.setbornYear(2015);
-
-children.childNameArrayCopy = [];
-children.surnameArrayCopy = [];
-children.fathernameArrayCopy = [];
-children.mothernameArrayCopy = [];
-children.bornYearArrayCopy = [];
-
-children.getchildnameArray();
-children.getsurnameArray();
-children.getfathernameArray();
-children.getmothernameArray();
-children.getbornYearArray();
-/* 
-var myChildrens;
-            for (var j = 0; j < children.getchildnameArray.length; j++) {
-                myChildrens = {
-                    anun: children.childNameArrayCopy[j],
-                    azganun: children.surnameArrayCopy[j],
-                    hayranun: children.fathernameArrayCopy[j],
-                    moranun: children.mothernameArrayCopy[j],
-                    borntiv: children.bornYearArrayCopy[j],
-                };
-                var table = document.getElementById("myTable");
-                var row = table.insertRow(j);
-                var cell1 = row.insertCell(0);
-                var cell2 = row.insertCell(1);
-                var cell3 = row.insertCell(2);
-                var cell4 = row.insertCell(3);
-                var cell5 = row.insertCell(4);
-
-                cell1.innerHTML = myChildrens.anun,
-                cell2.innerHTML = myChildrens.azganun,
-                cell3.innerHTML = myChildrens.hayranun,
-                cell4.innerHTML = myChildrens.moranun,
-                cell5.innerHTML = myChildrens.borntiv;
-                
-
-            };
-*/
-
-/*
-document.write(
-	for (var j = 0; j < children.getchildnameArray.length; j++) {
+        
+    </script>
 
 
-	children.childNameArrayCopy[j] +"<br>"+
-	children.surnameArrayCopy[j]+"<br>"+
-	children.fathernameArrayCopy[j]+"<br>"+
-	children.mothernameArrayCopy[j]+"<br>"+
-	children.bornYearArrayCopy[j]});
-*/
-
-document.write(
-	"Չորրորդ օբյեկտի տվյաներն են՝"+"<br>"+
-	children.childNameArrayCopy[3] +"<br>"+
-	children.surnameArrayCopy[3]+"<br>"+
-	children.fathernameArrayCopy[3]+"<br>"+
-	children.mothernameArrayCopy[3]+"<br>"+
-	children.bornYearArrayCopy[3])	
-
-
-</script>
 </body>
-
 </html>
