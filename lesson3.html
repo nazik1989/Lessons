@@ -22,7 +22,7 @@
   <table id="table"class="table table-bordered">
     <caption>My products</caption>
     <thead>
-      <tr style="background-color: blue; color:white">
+      <tr style="background-color: LightSeaGreen ; color:white">
         <th>ID</th>
         <th >Name</th>
         <th>Price</th>
@@ -34,16 +34,7 @@
       </tr>
     </thead>
     <tbody id="tbody">
-        
-    <!--  <th id="th1">1</th>
-        <th id="th2">նուռ</th>
-        <th id="th3">1200</th>
-        <th id="th4">29.06.2018</th>
-        <th id="th5">7օր</th>
-        <th>թարմ</th>
-        <th>Button Delete</th>
-        <th>Button Edit</th>
-        -->
+
     </tbody>
   </table>
   <!-- Trigger the modal with a button -->
@@ -57,7 +48,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">Create my product</h4>
         </div>
     <div class="modal-body">
         <form class="form-horizontal" action="/action_page.php">
@@ -104,7 +95,8 @@
 <script type="text/javascript" >
 
         var productArray = [];
-        function saveProductInArray()   {
+
+    function saveProductInArray()   {
 $('#tbody').empty();
         var product  =   {};
         product.name=document.getElementById("name").value ;
@@ -133,26 +125,24 @@ var tr = (
 '<td id="' + trIdVar +manufForId+ '">'+ productArray[i].dateOfmanufacture+'</td>'+
 '<td id="' + trIdVar +expForId+ '">'+ productArray[i].expirationDate+'</td>'+
 '<td id="' + trIdVar +statForID+ '">'+ trIdVar +statForID+'</td>'+
-'<td id="' + trIdVar +delForId+ '">'+ trIdVar +delForId+'</td>'+
-'<td id="' + trIdVar +editForId+ '">'+ trIdVar +editForId+'</td>'+
+'<td>'+'<button id="' + trIdVar +delForId+ '" class="deleteButton"  >'+ trIdVar +delForId+'</button>'+'</td>'+
+'<td >'+'<button id="' + trIdVar +editForId+ '"  >'+ trIdVar +editForId+'</button>'+'</td>'+
     
   '</tr>'
 );
-$('#tbody').append(tr);
+// pop up-ic heto arac@ chi pahpanum
+        $('#tbody').append(tr);
+$('.deleteButton').click(function(){
+    $(this).parents('tr').first().remove();
+});
 
-/*console.log(x);
-console.log(typeof x);
-console.log(productArray[i].dateOfmanufacture);
-console.log(typeof productArray[i].dateOfmanufacture);
-console.log(new Date());
-console.log(typeof new Date());*/
+
 var today = new Date(); 
 var x=productArray[i].dateOfmanufacture;
 var y=+productArray[i].expirationDate;
 JamketiSkizb = new Date(x);
 JamketiAvart = new Date();
 JamketiAvart.setDate(JamketiSkizb.getDate()+y);
-console.log(JamketiSkizb);
 
 if ((JamketiAvart.getFullYear()==today.getFullYear())&&
     (JamketiAvart.getMonth()==today.getMonth())&&
@@ -172,13 +162,13 @@ else {
           
           document.getElementById("table").style.display = "block";
           document.getElementById("empty").style.display = "none";
+
+
 }
-                  /*document.getElementById("th1").innerHTML+=i+1; 
-          document.getElementById("th2").innerHTML+=productArray[i].name ;
-          document.getElementById("th3").innerHTML+=productArray[i].price ;
-          document.getElementById("th4").innerHTML+=productArray[i].dateOfmanufacture ;
-          document.getElementById("th5").innerHTML+=productArray[i].expirationDate ; */
-    </script>
+
+
+
+</script>
 
 
 </body>
