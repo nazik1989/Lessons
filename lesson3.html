@@ -22,7 +22,7 @@
   <table id="table"class="table table-bordered">
     <caption>My products</caption>
     <thead>
-      <tr>
+      <tr style="background-color: blue; color:white">
         <th>ID</th>
         <th >Name</th>
         <th>Price</th>
@@ -64,28 +64,28 @@
             <div class="form-group">
             <label class="control-label col-sm-2" for="name">Name:</label>
                 <div class="col-sm-10">
-                <input  class="form-control" id="name" placeholder="Enter name" name="name">
+                <input  type="text" class="form-control" id="name" placeholder="Enter name" name="name">
                 </div>
             </div>
 
             <div class="form-group">
             <label class="control-label col-sm-2" for="price">Price:</label>
                 <div class="col-sm-10">
-                <input  class="form-control" id="price" placeholder="Enter price" name="price">
+                <input  type="number" class="form-control" id="price" placeholder="Enter price" name="price">
                 </div>
             </div>
 
             <div class="form-group">
             <label class="control-label col-sm-2" for="dateOfmanufacture">Date Of Manufacture:</label>
                 <div class="col-sm-10">
-                <input  class="form-control" id="dateOfmanufacture" placeholder="Enter date of manufacture" name="dateOfmanufacture">
+                <input  type="date" class="form-control" id="dateOfmanufacture" placeholder="Enter date of manufacture" name="dateOfmanufacture">
                 </div>
             </div>
 
             <div class="form-group">
             <label class="control-label col-sm-2" for="expirationDate">Expiration Date:</label>
                 <div class="col-sm-10">
-                <input  class="form-control" id="expirationDate" placeholder="Enter expiration date" name="expirationDate">
+                <input  type="number" class="form-control" id="expirationDate" placeholder="Enter expiration date" name="expirationDate">
                 </div>
             </div>
     </div>
@@ -105,19 +105,19 @@
 
         var productArray = [];
         function saveProductInArray()   {
-
+$('#tbody').empty();
         var product  =   {};
         product.name=document.getElementById("name").value ;
         product.price=document.getElementById("price").value ;
-product.dateOfmanufacture= document.getElementById("dateOfmanufacture").value ;
-    product.expirationDate= document.getElementById("expirationDate").value ;
+        product.dateOfmanufacture= document.getElementById("dateOfmanufacture").value ;
+        product.expirationDate= document.getElementById("expirationDate").value ;
         productArray.push(product);
 
     for (i=0; i<productArray.length;i++){
 var tbody = $('#tbody');
 var text  = 'My Data in td';
 var trIdVar = 'trId'+i; 
-var idForId = "id";
+var idForid = "id";
 var nameForId="name";
 var priceForId = "price";
 var manufForId="manuf";
@@ -127,18 +127,47 @@ var delForId="del";
 var editForId="edit";    
 var tr = (
   '<tr id="' + trIdVar + '">' +
-    '<td id="' + trIdVar +idForId+ '">'+ trIdVar +idForId +'</td>'+
-    '<td id="' + trIdVar +nameForId+ '">'+ trIdVar +nameForId+'</td>'+
-    '<td id="' + trIdVar +priceForId+ '">'+ trIdVar +priceForId+'</td>'+
-    '<td id="' + trIdVar +manufForId+ '">'+ trIdVar +manufForId+'</td>'+
-    '<td id="' + trIdVar +expForId+ '">'+ trIdVar +expForId+'</td>'+
-    '<td id="' + trIdVar +statForID+ '">'+ trIdVar +statForID+'</td>'+
-    '<td id="' + trIdVar +delForId+ '">'+ trIdVar +delForId+'</td>'+
-    '<td id="' + trIdVar +editForId+ '">'+ trIdVar +editForId+'</td>'+
+'<td id="' + trIdVar + idForid+'">'+ i +'</td>'+
+'<td id="' + trIdVar +nameForId+ '">'+ productArray[i].name+'</td>'+
+'<td id="' + trIdVar +priceForId+ '">'+ productArray[i].price+'</td>'+
+'<td id="' + trIdVar +manufForId+ '">'+ productArray[i].dateOfmanufacture+'</td>'+
+'<td id="' + trIdVar +expForId+ '">'+ productArray[i].expirationDate+'</td>'+
+'<td id="' + trIdVar +statForID+ '">'+ trIdVar +statForID+'</td>'+
+'<td id="' + trIdVar +delForId+ '">'+ trIdVar +delForId+'</td>'+
+'<td id="' + trIdVar +editForId+ '">'+ trIdVar +editForId+'</td>'+
     
   '</tr>'
 );
 $('#tbody').append(tr);
+
+/*console.log(x);
+console.log(typeof x);
+console.log(productArray[i].dateOfmanufacture);
+console.log(typeof productArray[i].dateOfmanufacture);
+console.log(new Date());
+console.log(typeof new Date());*/
+var today = new Date(); 
+var x=productArray[i].dateOfmanufacture;
+var y=+productArray[i].expirationDate;
+JamketiSkizb = new Date(x);
+JamketiAvart = new Date();
+JamketiAvart.setDate(JamketiSkizb.getDate()+y);
+console.log(JamketiSkizb);
+
+if ((JamketiAvart.getFullYear()==today.getFullYear())&&
+    (JamketiAvart.getMonth()==today.getMonth())&&
+    (JamketiAvart.getDate()==today.getDate())){
+    document.getElementById(trIdVar +statForID).innerHTML = "ժամկետն Էսօր կանցնի";
+    document.getElementById(trIdVar +statForID).style.backgroundColor = "orange";
+}
+else if (JamketiAvart < today){
+    document.getElementById(trIdVar +statForID).innerHTML = "ժամկետն անցել է";
+    document.getElementById(trIdVar +statForID).style.backgroundColor = "red";
+}
+else {
+    document.getElementById(trIdVar +statForID).innerHTML = "ժամկետի մեջ է";
+    document.getElementById(trIdVar +statForID).style.backgroundColor = "green";}
+
 };
           
           document.getElementById("table").style.display = "block";
