@@ -17,7 +17,7 @@
 <div class="container" >
     <div  class="container" id="empty" style="padding:5px;background-color:LightSeaGreen;color:white;box-shadow: 10px; border-radius:6px">
      <h1>There are not products. </h1>
-     <h1>For add products, click in the button "Create product"</h1>  
+     <h1>For add products, click in the button "Add product"</h1>  
     </div>
   <table id="table"class="table table-bordered">
     <caption>My products</caption>
@@ -25,9 +25,9 @@
       <tr style="background-color: LightSeaGreen ; color:white">
         <th>ID</th>
         <th >Name</th>
-        <th>Price</th>
+        <th>Price($)</th>
         <th>Date Of Manufacture</th>
-        <th>Expiration Date</th>
+        <th>Expiration Date(days)</th>
         <th>Status</th>
         <th>Action Delete</th>
         <th>Action Edit</th>
@@ -38,7 +38,7 @@
     </tbody>
   </table>
   <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Create product</button>
+  <button id="addProduct" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add product</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -55,34 +55,34 @@
             <div class="form-group">
             <label class="control-label col-sm-2" for="name">Name:</label>
                 <div class="col-sm-10">
-                <input  type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+                <input  type="text" class="form-control" id="name" placeholder="Enter name" name="name" required>
                 </div>
             </div>
 
             <div class="form-group">
-            <label class="control-label col-sm-2" for="price">Price:</label>
+            <label class="control-label col-sm-2" for="price">Price($):</label>
                 <div class="col-sm-10">
-                <input  type="number" class="form-control" id="price" placeholder="Enter price" name="price">
+                <input  type="number" class="form-control" id="price" placeholder="Enter price" name="price" required>
                 </div>
             </div>
 
             <div class="form-group">
             <label class="control-label col-sm-2" for="dateOfmanufacture">Date Of Manufacture:</label>
                 <div class="col-sm-10">
-                <input  type="date" class="form-control" id="dateOfmanufacture" placeholder="Enter date of manufacture" name="dateOfmanufacture">
+                <input  type="date" class="form-control" id="dateOfmanufacture" placeholder="Enter date of manufacture" name="dateOfmanufacture" required>
                 </div>
             </div>
 
             <div class="form-group">
-            <label class="control-label col-sm-2" for="expirationDate">Expiration Date:</label>
+            <label class="control-label col-sm-2" for="expirationDate">Expiration Date(days):</label>
                 <div class="col-sm-10">
-                <input  type="number" class="form-control" id="expirationDate" placeholder="Enter expiration date" name="expirationDate">
+                <input  type="number" class="form-control" id="expirationDate" placeholder="Enter expiration date" name="expirationDate" required>
                 </div>
             </div>
     </div>
             <div class="modal-footer">
                 <div class="col-sm-offset-2 col-sm-10">
-        <button id="button" onclick="saveProductInArray()" type="submit" class="btn btn-info btn-lg" data-dismiss="modal">Save</button>
+        <button id="button"  type="submit" class="btn btn-info btn-lg" data-dismiss="modal">Save</button>
                 </div>
             </div>
          </form>
@@ -93,15 +93,35 @@
   
 </div>
 <script type="text/javascript" >
-        var productArray = [];
-    function saveProductInArray()   {
-$('#tbody').empty();
+    document.getElementById("button").addEventListener("click", validate1);
+function validate1() {
+    if (document.getElementById("name").value == "" ||
+    document.getElementById("price").value == "" ||
+    document.getElementById("dateOfmanufacture").value == "" ||
+    document.getElementById("expirationDate").value == ""){
+    alert("Please refresh page and fill all input fields.");
+    document.getElementById("button").removeEventListener("click", saveProductInArray);}};
+
+
+document.getElementById("button").addEventListener("click", validate2);
+function validate2() {
+var today = new Date(); 
+var d=document.getElementById("dateOfmanufacture").value;
+JamketiSkizb = new Date(d);
+if (JamketiSkizb>today){alert("Product can not  manufactured tomorrow, please refresh page and set true manufactured date");}}
+
+
+document.getElementById("button").addEventListener("click", saveProductInArray);
+    var productArray = [];
+    function saveProductInArray() {
+        $('#tbody').empty();
         var product  =   {};
         product.name=document.getElementById("name").value ;
         product.price=document.getElementById("price").value ;
         product.dateOfmanufacture= document.getElementById("dateOfmanufacture").value ;
         product.expirationDate= document.getElementById("expirationDate").value ;
         productArray.push(product);
+
     for (i=0; i<productArray.length;i++){
 var tbody = $('#tbody');
 var text  = 'My Data in td';
@@ -113,25 +133,37 @@ var manufForId="manuf";
 var expForId = "exp";
 var statForID = "stat";
 var delForId="del";
-var editForId="edit";    
+var editForId="edit";  
+var j=i+1;  
 var tr = (
   '<tr id="' + trIdVar + '">' +
-'<td id="' + trIdVar + idForid+'">'+ i +'</td>'+
+'<td id="' + trIdVar + idForid+'">'+j +'</td>'+
 '<td id="' + trIdVar +nameForId+ '">'+ productArray[i].name+'</td>'+
 '<td id="' + trIdVar +priceForId+ '">'+ productArray[i].price+'</td>'+
 '<td id="' + trIdVar +manufForId+ '">'+ productArray[i].dateOfmanufacture+'</td>'+
 '<td id="' + trIdVar +expForId+ '">'+ productArray[i].expirationDate+'</td>'+
-'<td id="' + trIdVar +statForID+ '">'+ trIdVar +statForID+'</td>'+
-'<td>'+'<button id="' + trIdVar +delForId+ '" class="deleteButton"  >'+ trIdVar +delForId+'</button>'+'</td>'+
-'<td >'+'<button id="' + trIdVar +editForId+ '"  >'+ trIdVar +editForId+'</button>'+'</td>'+
+'<td style="padding:5px;color:white" id="' + trIdVar +statForID+ '">'+ trIdVar +statForID+'</td>'+
+'<td>'+'<button style="padding:5px;background-color:LightSeaGreen;color:white;box-shadow: 10px; border-radius:6px" id="' + trIdVar +delForId+ '" class="deleteButton"  >'+ trIdVar +delForId+'</button>'+'</td>'+
+'<td >'+'<button style="padding:5px;background-color:LightSeaGreen;color:white;box-shadow: 10px; border-radius:6px" id="' + trIdVar +editForId+ '" >'+ trIdVar +editForId+'</button>'+'</td>'+
     
   '</tr>'
 );
-// pop up-ic heto arac@ chi pahpanum
-        $('#tbody').append(tr);
+
+
+      $('#tbody').append(tr);
 $('.deleteButton').click(function(){
     $(this).parents('tr').first().remove();
 });
+
+
+/*document.getElementById(trIdVar +editForId).addEventListener("click", onEdit);
+function onEdit(){
+    $(trIdVar +editForId).attr('data-toggle', 'modal');
+    $(trIdVar +editForId).attr('data-target', '#myModal');
+  //<button id="addProduct" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add product</button> 
+}*/ 
+
+
 var today = new Date(); 
 var x=productArray[i].dateOfmanufacture;
 var y=+productArray[i].expirationDate;
@@ -139,9 +171,6 @@ JamketiSkizb = new Date(x);
 JamketiAvart = new Date(JamketiSkizb);
 JamketiAvart.setDate(JamketiAvart.getDate()+y);
 
-console.log(JamketiSkizb);
-console.log(JamketiAvart);
-console.log(today);
 if ((JamketiAvart.getFullYear()==today.getFullYear())&&
     (JamketiAvart.getMonth()==today.getMonth())&&
     (JamketiAvart.getDate()==today.getDate())){
@@ -160,6 +189,8 @@ else {
           document.getElementById("table").style.display = "block";
           document.getElementById("empty").style.display = "none";
 }
+
+
 </script>
 
 
