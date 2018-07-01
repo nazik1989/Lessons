@@ -93,9 +93,7 @@
   
 </div>
 <script type="text/javascript" >
-
         var productArray = [];
-
     function saveProductInArray()   {
 $('#tbody').empty();
         var product  =   {};
@@ -104,7 +102,6 @@ $('#tbody').empty();
         product.dateOfmanufacture= document.getElementById("dateOfmanufacture").value ;
         product.expirationDate= document.getElementById("expirationDate").value ;
         productArray.push(product);
-
     for (i=0; i<productArray.length;i++){
 var tbody = $('#tbody');
 var text  = 'My Data in td';
@@ -135,15 +132,16 @@ var tr = (
 $('.deleteButton').click(function(){
     $(this).parents('tr').first().remove();
 });
-
-
 var today = new Date(); 
 var x=productArray[i].dateOfmanufacture;
 var y=+productArray[i].expirationDate;
 JamketiSkizb = new Date(x);
-JamketiAvart = new Date();
-JamketiAvart.setDate(JamketiSkizb.getDate()+y);
+JamketiAvart = new Date(JamketiSkizb);
+JamketiAvart.setDate(JamketiAvart.getDate()+y);
 
+console.log(JamketiSkizb);
+console.log(JamketiAvart);
+console.log(today);
 if ((JamketiAvart.getFullYear()==today.getFullYear())&&
     (JamketiAvart.getMonth()==today.getMonth())&&
     (JamketiAvart.getDate()==today.getDate())){
@@ -157,17 +155,11 @@ else if (JamketiAvart < today){
 else {
     document.getElementById(trIdVar +statForID).innerHTML = "ժամկետի մեջ է";
     document.getElementById(trIdVar +statForID).style.backgroundColor = "green";}
-
 };
           
           document.getElementById("table").style.display = "block";
           document.getElementById("empty").style.display = "none";
-
-
 }
-
-
-
 </script>
 
 
