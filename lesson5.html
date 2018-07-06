@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Create form using AngularJS</title>
+  
+
+<script src="AngularJS.js"></script>
+ 
+  
+</head>
+<body ng-app="formApp">
+<div ng-controller="formController">
+<form novalidate >
+<label>Name: <input type="text" ng-model="user.name" required /></label><br />
+<label>Lastname: <input type="text" ng-model="user.lastname" required /></label><br />
+
+<label>National: <select ng-model="user.national">
+<option ng-repeat="x in nationals" value="{{x}}">{{x}}</option></select></label><br /> 
+<label>Phone: <input type="number" ng-model="user.phone" required /></label><br />   
+<label>About you:<textarea ng-model="aboutUser"></textarea></label><br />
+<label><input type="radio"  ng-model="user.mymail" value="show"> showmail</label>
+<label><input type="radio"  ng-model="user.mymail" value="hide"> hidemail</label><br>
+<div ng-if="user.mymail==='show'?true:false">
+<label>E-mail: <input type="email" ng-model="user.email" required /></label>
+</div>
+
+   
+<input type="submit" ng-click="save(user)" value="Save" />
+</form>
+  
+<pre ng-show = "userCopy" ></pre>
+</div>
+
+
+<script>
+  angular.module('formApp', [])
+    .controller('formController', ['$scope', function($scope) {
+      $scope.nationals = ['Afghan',
+        'Albanian',
+        'Algerian',
+        'American',
+        'Andorran',
+        'Angolan',
+        'Antiguans',
+        'Argentinean',
+        'Armenian',
+        'Australian',
+        'Austrian',
+        'Azerbaijani',
+        'Bahamian',
+        'Bahraini',
+        'Bangladeshi',
+        'Barbadian',
+        'Barbudans',
+        'Batswana',
+        'Belarusian',
+        'Belgian',
+        'Belizean',
+        'Beninese',
+        'Bhutanese',
+        'Bolivian',
+        'Bosnian',
+        'Brazilian',
+        'British',
+        'Bruneian',
+        'Bulgarian',
+        'Burkinabe',
+        'Burmese',
+        'Burundian',
+        'Cambodian',
+        'Cameroonian',
+        'Canadian',
+        'Cape Verdean',
+        'Central African',
+        'Chadian',
+        'Chilean',
+        'Chinese',
+        'Colombian',
+        'Comoran',
+        'Congolese',
+        'Costa Rican',
+        'Croatian',
+        'Cuban',
+        'Cypriot',
+        'Czech',
+        'Danish',
+        'Djibouti',
+        'Dominican',
+        'Dutch',
+        'East Timorese',
+        'Ecuadorean',
+        'Egyptian',
+        'Emirian',
+        'Equatorial Guinean',
+        'Eritrean',
+        'Estonian',
+        'Ethiopian',
+        'Fijian',
+        'Filipino',
+        'Finnish',
+        'French',
+        'Gabonese',
+        'Gambian',
+        'Georgian',
+        'German',
+        'Ghanaian',
+        'Greek',
+        'Grenadian',
+        'Guatemalan',
+        'Guinea-Bissauan',
+        'Guinean',
+        'Guyanese',
+        'Haitian',
+        'Herzegovinian',
+        'Honduran',
+        'Hungarian',
+        'I-Kiribati',
+        'Icelander',
+        'Indian',
+        'Indonesian',
+        'Iranian',
+        'Iraqi',
+        'Irish',
+        'Israeli',
+        'Italian',
+        'Ivorian',
+        'Jamaican',
+        'Japanese',
+        'Jordanian',
+        'Kazakhstani',
+        'Kenyan',
+        'Kittian and Nevisian',
+        'Kuwaiti',
+        'Kyrgyz',
+        'Laotian',
+        'Latvian',
+        'Lebanese',
+        'Liberian',
+        'Libyan',
+        'Liechtensteiner',
+        'Lithuanian',
+        'Luxembourger',
+        'Macedonian',
+        'Malagasy',
+        'Malawian',
+        'Malaysian',
+        'Maldivan',
+        'Malian',
+        'Maltese',
+        'Marshallese',
+        'Mauritanian',
+        'Mauritian',
+        'Mexican',
+        'Micronesian',
+        'Moldovan',
+        'Monacan',
+        'Mongolian',
+        'Moroccan',
+        'Mosotho',
+        'Motswana',
+        'Mozambican',
+        'Namibian',
+        'Nauruan',
+        'Nepalese',
+        'New Zealander',
+        'Nicaraguan',
+        'Nigerian',
+        'Nigerien',
+        'North Korean',
+        'Northern Irish',
+        'Norwegian',
+        'Omani',
+        'Pakistani',
+        'Palauan',
+        'Panamanian',
+        'Papua New Guinean',
+        'Paraguayan',
+        'Peruvian',
+        'Polish',
+        'Portuguese',
+        'Qatari',
+        'Romanian',
+        'Russian',
+        'Rwandan',
+        'Saint Lucian',
+        'Salvadoran',
+        'Samoan',
+        'San Marinese',
+        'Sao Tomean',
+        'Saudi',
+        'Scottish',
+        'Senegalese',
+        'Serbian',
+        'Seychellois',
+        'Sierra Leonean',
+        'Singaporean',
+        'Slovakian',
+        'Slovenian',
+        'Solomon Islander',
+        'Somali',
+        'South African',
+        'South Korean',
+        'Spanish',
+        'Sri Lankan',
+        'Sudanese',
+        'Surinamer',
+        'Swazi',
+        'Swedish',
+        'Swiss',
+        'Syrian',
+        'Taiwanese',
+        'Tajik',
+        'Tanzanian',
+        'Thai',
+        'Togolese',
+        'Tongan',
+        'Trinidadian/Tobagonian',
+        'Tunisian',
+        'Turkish',
+        'Tuvaluan',
+        'Ugandan',
+        'Ukrainian',
+        'Uruguayan',
+        'Uzbekistani',
+        'Venezuelan',
+        'Vietnamese',
+        'Welsh',
+        'Yemenite',
+        'Zambian',
+        'Zimbabwean'];
+      $scope.userCopy = {};
+      $scope.user={mymail:'hide'};
+$scope.user={national:'Armenian'};
+      $scope.save = function(user) {
+        $scope.userCopy = angular.copy(user);
+        console.log($scope.userCopy);
+      };
+
+
+    }]);
+</script>
+</body>
+</html>
