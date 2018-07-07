@@ -9,6 +9,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <title>Create form using AngularJS</title>
 <script src="AngularJS.js"></script>
+<style>
+input.ng-invalid {
+    background-color:LightSeaGreen;
+}
+
+
+</style>
 </head>
 
 <body ng-app="formApp">
@@ -39,13 +46,25 @@
     </div>
     <div class="form-check">
 <label class="form-check-label"><input type="checkbox" ng-model="user.haveChild"
-    ng-true-value="'YES'" ng-false-value="'NO'" class="form-check-input">Have you child?</label>
+     class="form-check-input">Have you child?</label>
     </div>
+        <div class="form-group" ng-show="user.haveChild">
+<label>How many children do you have?<input type="number"  ng-model="user.childrenCount" placeholder="Enter your children count"required class="form-control"/></label>
+    </div> 
+
+
     <div class="form-check">
 <label class="form-check-label"><input type="checkbox" ng-model="user.haveWork"
-    ng-true-value="'YES'" ng-false-value="'NO'" class="form-check-input">Have you work?</label>
+     class="form-check-input">Have you work?</label>
     </div>
     </div>
+    <div class="form-group" ng-show="user.haveWork">
+<label>Please enter your workplace:<input type="text"  ng-model="user.workPlace"placeholder="Enter your workplace"required class="form-control"/></label>
+    </div> 
+    <div class="form-group" ng-show="user.haveWork">
+<label>Please enter your occupied position:<input type="text"  ng-model="user.occupiedPosition"placeholder="Enter your occupied position"required class="form-control"/></label>
+    </div> 
+
     <div class="form-group">
 <p>If you have E-mail please fill it, else choose "I havn't E-mail "</p>
     </div>

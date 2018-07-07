@@ -195,6 +195,7 @@ angular.module('formApp', [])
         'Zimbabwean'];
       $scope.userCopy = {};
       $scope.user={haveMail:'no'};
+    
 $scope.user={national:'Armenian'};
   $scope.myPreTag = {
     "display":"none"
