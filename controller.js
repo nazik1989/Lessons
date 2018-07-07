@@ -195,13 +195,12 @@ angular.module('formApp', [])
         'Zimbabwean'];
       $scope.userCopy = {};
       $scope.user={haveMail:'no'};
-    
 $scope.user={national:'Armenian'};
   $scope.myPreTag = {
     "display":"none"
 };
       $scope.save = function(user) {
-        $scope.userCopy = angular.copy(user);
+        
          $scope.myPreTag = {
     "display":"block",
     "color" : "white",
@@ -210,7 +209,7 @@ $scope.user={national:'Armenian'};
     "border-radius":"10px",
     "font-size" : "20px",
     "padding" : "5px"};
-        console.log($scope.userCopy);
+        console.log($scope.user);
       };
 
 
