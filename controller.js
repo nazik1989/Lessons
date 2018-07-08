@@ -194,13 +194,10 @@ angular.module('formApp', [])
         'Zambian',
         'Zimbabwean'];
       $scope.userCopy = {};
-      $scope.user={haveMail:'no'};
-$scope.user={national:'Armenian'};
-  $scope.myPreTag = {
-    "display":"none"
-};
+      $scope.myPreTag = {
+    "display":"none"};
       $scope.save = function() {
-        
+        $scope.userCopy = angular.copy($scope.user)
          $scope.myPreTag = {
     "display":"block",
     "color" : "white",
@@ -211,6 +208,4 @@ $scope.user={national:'Armenian'};
     "padding" : "5px"};
         console.log($scope.user);
       };
-
-
-    }]);
+}]);
