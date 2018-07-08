@@ -199,7 +199,7 @@ $scope.user={national:'Armenian'};
   $scope.myPreTag = {
     "display":"none"
 };
-      $scope.save = function(user) {
+      $scope.save = function() {
         
          $scope.myPreTag = {
     "display":"block",
