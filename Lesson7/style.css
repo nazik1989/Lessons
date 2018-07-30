@@ -1,0 +1,25 @@
+
+.header {
+
+    padding: 80px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+}
+
+.header h1 {
+    font-size: 40px;
+}
+
+/* Footer */
+.footer {
+
+    padding: 20px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+
+
+}
+.footer h2 {
+    font-size: 40px;}

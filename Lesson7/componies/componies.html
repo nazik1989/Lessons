@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link data-require="bootstrap-css@2.3.2" data-semver="2.3.2" rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script data-require="angular-ui-bootstrap@0.3.0" data-semver="0.3.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.3.0.min.js"></script>
+
+    <link rel="stylesheet" href="../style.css" />
+    <script src="componies.js"></script>
+</head>
+
+<body ng-app="todos" ng-controller="TodoController">
+
+
+<div class="header">
+    <h1> FindComponie</h1>
+    <h3>We will help you find the needful componie </h3>
+    <p>There are {{todos.length}} componies</p>
+</div>
+
+
+<div class="container" class="row">
+    <div class="col-sm-6" ng-repeat="x in filteredTodos" >
+        <div ng-click="GetValues( x.name, x.permalink,  x.crunchbase_url,x.homepage_url)">
+            <p>Componie name <b>"{{x.name}}" (Click here for more information )</b></p>
+        </div>
+        <div>Crunchbase url  <a ng-href="{{x.crunchbase_url}}/{{hash}}">"{{x.crunchbase_url}}"</a></div>
+        <div>Homepage url  <a ng-href="{{x.homepage_url}}/{{hash}}">"{{x.homepage_url}}"</a></div>
+        <div ><img src="{{x.image}}" ng-style="myimage"></div>
+
+    </div>
+</div>
+
+<div  data-pagination="" data-num-pages="numPages()"
+      data-current-page="currentPage" data-max-size="maxSize"
+      data-boundary-links="true">
+
+</div>
+
+
+<div class="footer">
+    <h2> Our Contacts</h2>
+    <h4> Yerevan, Halabyan 48</h4>
+    <p>© FindComponie 2018</p>
+</div>
+
+</body>
+
+
+</html>
+
+
