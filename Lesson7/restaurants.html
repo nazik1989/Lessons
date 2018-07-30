@@ -13,33 +13,38 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
     <script data-require="angular-ui-bootstrap@0.3.0" data-semver="0.3.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.3.0.min.js"></script>
 
-    <link rel="stylesheet" href="../style.css" />
-    <script src="products.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="restaurants.js"></script>
 </head>
 
 <body ng-app="todos" ng-controller="TodoController">
 
 
 <div class="header">
-    <h1> ArmProd</h1>
-    <h3>Web Shop</h3>
-    <p>Now we have {{todos.length}} products</p>
+    <h1>ChooseRestWeb</h1>
+    <h4>We care about your healthy food</h4>
+    <p>Please choose a suitable restaurant for you in the <b>BEST {{todos.length}}</b></p>
 </div>
 
 
 <div class="container" class="row">
     <div class="col-sm-6" ng-repeat="x in filteredTodos" >
 
-        <div ng-click="GetValues(x.name, x.price, x.monthly_price, x.image, x.type, x.color)"><h3>{{x.name}}</h3></div>
-
+        <div ng-click="GetValues(x.URL, x.name, x.address,  x.rating,x.type_of_food, x.outcode, x.postcode)">
+            <p>Restaurant name <b>"{{x.name}}" (Click here for more information )</b></p>
+        </div>
+        <div><p>Address  <b>"{{x.address}}"</b></p></div>
+        <div><p>Type of food  <b>"{{x.type_of_food}}"</b></p></div>
+        <div ><p>Rating <b>"{{x.rating}} stars"</b></p></div>
+        <div><p>For reserve your place in this restaurant go to link under</p> <a ng-href="{{x.URL}}/{{hash}}">"{{x.URL}}"</a></div>
         <div ><img src="{{x.image}}" ng-style="myimage"></div>
-        <div >{{x.price |  currency}}</div>
-        <div >{{x.monthly_price |  currency}}</div>
+
+
 
     </div>
 </div>
 
-<div  data-pagination="" data-num-pages="numPages()"
+<div  align="center" data-pagination="" data-num-pages="numPages()"
       data-current-page="currentPage" data-max-size="maxSize"
       data-boundary-links="true">
 
@@ -48,13 +53,14 @@
 
 <div class="footer">
     <h2> Our Contacts</h2>
-    <h4> Yerevan, Halabyan 48</h4>
-    <p>© ArmProd 2018</p>
+    <h4> Yerevan, Tigranyan 15</h4>
+    <p>© ChooseRestWeb 2018</p>
 </div>
-
 </body>
 
 
 </html>
+
+
 
 
