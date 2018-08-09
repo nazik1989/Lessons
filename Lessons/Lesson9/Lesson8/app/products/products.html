@@ -1,0 +1,33 @@
+<div class="header">
+  <h1> FindProduct</h1>
+  <h3>We will help you find the needful product </h3>
+  <p>There are {{todos.length}} products</p>
+</div>
+
+<div class="container" class="row">
+  <div class="col-sm-6" ng-repeat="x in filteredTodos" >
+
+    <div ng-click="GetValues(x.name, x.price, x.monthly_price, x.image, x.type, x.color)"><h3>{{x.name}}</h3></div>
+
+    <div ><img src="{{x.image}}" ng-style="myimage"></div>
+    <div >{{x.price |  currency}}</div>
+    <div >{{x.monthly_price |  currency}}</div>
+
+  </div>
+</div>
+
+<div  data-pagination="" data-num-pages="numPages()"
+      data-current-page="currentPage" data-max-size="maxSize"
+      data-boundary-links="true">
+
+</div>
+
+<div class="footer">
+  <h2> Our Contacts</h2>
+  <h4> Yerevan, Halabyan 48</h4>
+  <p>© FindProduct 2018</p>
+</div>
+
+
+
+
