@@ -11,21 +11,17 @@ angular.module('myApp.products', ['ngRoute'])
 
 .controller('ProductsCtrl', ['$scope','$http',function($scope,$http) {
 
-           // console.log("something");
 
-    $http.get("http://localhost:8000")
+
+    $http.get("products/products.json")
         .then(function(response) {
-            console.log(response);
-
-
-   // $http.get("products.json")
-       // .then(function(response) {
             $scope.array = response.data;
 
-            $scope.filteredTodos = [],
-                $scope.currentPage = 1,
-                $scope.numPerPage = 5,
-                $scope.maxSize = 5;
+
+            $scope.filteredTodos = []
+                ,$scope.currentPage = 1
+                ,$scope.numPerPage = 5
+                ,$scope.maxSize = 5;
 
 
             $scope.makeTodos = function() {
@@ -72,11 +68,13 @@ angular.module('myApp.products', ['ngRoute'])
             };
 
             $scope.$watch('currentPage + numPerPage', function() {
-                var begin = (($scope.currentPage - 1) * $scope.numPerPage),
-                     end = begin + $scope.numPerPage;
+                var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                    , end = begin + $scope.numPerPage;
 
                 $scope.filteredTodos = $scope.todos.slice(begin, end);
             });
         });
+
+
 
 }]);

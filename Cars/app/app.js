@@ -9,10 +9,11 @@ angular.module('myApp', [
   'myApp.products',
   'myApp.restaurants',
   'myApp.componies',
+  'myApp.cars',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/home'});
+  $routeProvider.otherwise({redirectTo: '/cars'});
 }]);

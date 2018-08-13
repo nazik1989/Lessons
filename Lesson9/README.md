@@ -1,2 +1,0 @@
-# Lessons
-JS lessons

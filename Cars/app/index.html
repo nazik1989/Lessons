@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!-- for icons__>
+<!-- for bootstrap 4 start-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <!-- for bootstrap 4 end-->
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
+</head>
+<body style='background-image: url("cars/carsImage/redFerrari5.jpg");background-repeat: no-repeat;height: 100%;background-size: cover'>
+
+
+
+
+  <header>
+
+      <div class="row  firstDivInHeader1 h-100" ng-show="!showDiv">
+                <div class="col-sm-2"><p class="EnvatoMarket"> <img src="images/envato-icon-transparent.png" style="height: 20px;width: 20px;">envato<span style="color:#558000">market</span></p></div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-3 my-auto"><div class="card card-block w-25" style="float:right;"><button type="button" class="btn btn-success" style="border:none;">Buy now</button></div></div>
+        <div col-sm-1  style="border-left:1px solid lightgray; height:75px;"></div>
+        <div class="col-sm-2" style="float:right;"> <p class="RemoveFrame"><i class="fa fa-close" style="color:white" ng-click="showDiv =! showDiv"></i> Remove Frame</p></div>
+      </div>
+
+      <div class="row firstDivInHeader2" >
+            <div class="col-sm-6">
+              <p> <i class="fa fa-map-marker mt-2" style="font-size:15px"></i><b> AUTOSHOP</b><span style="font-size:15px;"> - 123 HOLDING, BUSAN,      KOREA</span></p>
+            </div>
+            <div class="col-sm-1">
+              <a class="whiteRedLink" href="#!/">ACCOUNT</a>
+            </div>
+            <div class="col-sm-1 ">
+              <a class="whiteRedLink" href="#!/">WISHLIST(0)</a>
+            </div>
+            <div class="col-sm-1">
+              <a class="whiteRedLink" href="#!/">CHECKOUT</a>
+            </div>
+            <div class="col-sm-1" >
+              <i class="fa fa-shopping-basket box" ng-mouseover="showDetails = !showDetails" ng-mouseleave=showDetails=!showDetails><sup style="border:5px solid red;border-radius: 10px;background-color:red;"><b>2</b></sup></i>
+
+            </div>
+      </div>
+    <!-- show-hide div gnumneri list skizb -->
+    <div  ng-show="showDetails" style="position: absolute;
+  width: 15%;
+  height: 30%;
+  top:15%;
+  left:80%;"><img src="images/carDetal.png" style="height: 200px;width:150px;border:3px solid red"></div>
+    </div>
+
+    <div class="container" >
+      <div class="row  " >
+        <div class="col-sm-6"></div>
+
+        <div class="col-sm-5" id="trapezoid">
+          <h6 style="color:white">Need support? Call us:&nbsp <span><b> <i class="fa fa-phone" style="font-size:16px"></i> 0123-456-789</b></span></h6>
+        </div>
+
+        <div class="col-sm-1"></div>
+      </div>
+    </div>
+
+    <div class="container blackSexan" >
+      <div class="row">
+        <div class="col-sm-2"><img src=images/logo.png style="height: 70px;width: 150px"></div>
+        <div class="col-sm-10 row" id="Sexan">
+          <div ><a class="whiteRedLink" href="#!/home"><h5 style="color:white;font-size:15px;">HOME</h5></a></div>
+          <div class="col-sm-1"></div>
+          <div ><a class="whiteRedLink"  href="#!/cars  "><h5 style="color:white;font-size:15px;">CARLISTING</h5></a></div>
+          <div class="col-sm-1"></div>
+          <div ><a class="whiteRedLink" href="#!/home"><h5 style="color:white;font-size:15px;">PRODUCT</h5></a></div>
+          <div class="col-sm-1"></div>
+          <div ><a class="whiteRedLink" href="#!/home"><h5 style="color:white;font-size:15px;">PAGES</h5></a></div>
+          <div class="col-sm-1"></div>
+          <div ><a class="whiteRedLink" href="#!/home"><h5 style="color:white;font-size:15px;">CONTACT US</h5></a></div>
+          <div class="col-sm-1"></div>
+
+
+
+                 <div >
+              <input  type="search" value="Search..." style="background-color:#262626; border:1px solid #262626;width: 140px;height:46px;color:lightgray;"  >
+                 </div>
+                <div style="background-color:#262626; border:1px solid #262626;width: 20px;height:50px;color:white;">
+                  <i class="fa fa-search"></i>
+                 </div>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="background-color: white;padding:10px;">
+      <div class="container">
+      <div class="row" >
+        <div class="col-sm-1" style="background-color:lightgray;"><i class="fa fa-home" style="font-size:24px;"></i></div>
+
+
+        <div class="col-sm-2 " style="background-color:lightgray;" >Product</div>
+
+
+        <div class="col-sm-2 " style="background-color:lightgray;">Tyres & Wheels</div>
+
+        <div class="col-sm-4"></div>
+
+        <div class="col-sm-3 row" style="background-color:red;color:white;padding:5px;text-align: center"><i class="fa fa-upload" style="color:white"></i><p><b>&nbsp UPLOAD YOUR VEHICLE</b></p></div>
+      </div>
+      </div>
+    </div>
+<!--
+    <div class="container">
+      <div class="col-md-12  row  menu-one">
+          <div class="col-md-3"></div>
+          <div id="col-md-9" class="col-md-9 row">
+            <div id="triangle-bottomright" class="red-triangle"></div>
+            <div class="square sq1">
+              <h5 class="text-white mt-4 h5-text">Need support? Call us:</h5>
+              <div class="phone mt-4">
+                <a class="" href="#"><b><i class="fa fa-phone" style="font-size:24px"></i>0123-456-789</b></a>
+              </div>
+            </div>
+            <div id="triangle-bottomleft"></div>
+          </div>
+        </div>
+        <div class="col-md-12 row">
+          <div class="col-md-1 logo-div">
+            <a href="#" class="logo"><img class="logo-img" src="images/logo.png" alt="logo"></a>
+          </div>
+          <div class="triangle-bottomright triangle-right"></div>
+          <div class="square sq2">
+            <ul class=" row ml-3 menu-two">
+              <li><a href="#!/home">HOME</a></li>
+              <li class="ml-3"><a href="#!/cars">CARLISTING</a></li>
+              <li class="ml-3"><a href="#!/products">PRODUCT</a></li>
+              <li class="ml-3"><a href="#">PAGES</a></li>
+              <li class="ml-3"><a href="#">CONTACT US</a></li>
+            </ul>
+
+            <div class="input-group col-md-4">
+              <input class="form-control text-white py-2 mt-4" type="search" placeholder="Search" id="example-search-input">
+              <span class="input-group-append">
+                            <button class="btn btn-outline-secondary mt-4 icon-search" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+    -->
+  </header>
+
+
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <div ng-view></div>
+
+<footer>
+
+
+
+  <div class="container" style= "background-color:#1a1a1a ">
+    <div class="row">
+      <div class="col-sm-4 text-white">
+        <h3 style="margin-bottom:15px ">COMPANY INFO</h3>
+        <div class="row"style="margin-bottom:25px">
+          <div class="col-sm-4"style="border-bottom: solid 2px red"></div><div class="col-sm-7"  style="border-bottom: solid 2px gray"></div>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod temp incidunt ut .</p>
+        <p><p class="fa fa-signal"> 123 Holding, Busan, Korea</p></p>
+        &#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;
+        <p> <p class="fa fa-phone"> 0123-456-789 </p></p>
+        &#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;
+        <p><p class="fa fa-envelope-o" aria-hidden ="true"> Support@htmlcs.com</p></p>
+        &#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;
+        <p class="glyphicon glyphicon-globe">      http://www.ndktheme.com</p>
+      </div>
+      <div class="col-sm-4 text-white">
+        <h3 style="margin-bottom:15px ">NEWSLETTER</h3>
+        <div class="row"style="margin-bottom:25px">
+          <div class="col-sm-4"style="border-bottom: solid 2px red"></div><div class="col-sm-7"  style="border-bottom: solid 2px gray"></div>
+        </div>
+        <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod temp incidunt ut</p>
+        <div class="form-group">
+          <input type="email"  id="email" name="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <button type="button" class="btn" style="background-color: red"><h6><b>SUBSCRIBE</b></h6></button>
+        </div>
+      </div>
+      <div class="col-sm-4 text-white">
+        <h3 style="margin-bottom:15px ">QUICK LINK</h3>
+        <div class="row" style="margin-bottom:25px">
+          <div class="col-sm-4"style="border-bottom: solid 2px red"></div><div class="col-sm-7"  style="border-bottom: solid 2px gray"></div>
+        </div>
+        <p>&gt Privacy Policy</p>
+        &#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;
+        <p>&gt Community</p>
+        &#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;
+        <p>&gt Blog</p>
+        &#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;
+        <p>&gt Guide use</p>
+        &#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;
+        <p>&gt Our Servces</p>
+
+
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="container " style="margin-bottom:-30px">
+    <div class="row">
+      <div class="col-xl-12"  style="background-color:black; height:70px" >
+        <div class="col-md-6">
+          <h5 class="mt-5">© 2016 Designed by <b style="color:red">T3THEME</b>. All rights reserved</h5>
+          <div class="social-icon list-inline pull-right"style="margin-right:-500px">
+            <p class= "fa fa-facebook"></p>
+            <p class= "fa fa-google"></p>
+            <p class= "fa fa-youtube"></p>
+            <p class= "fa fa-facebook"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="view1/view1.js"></script>
+  <script src="view2/view2.js"></script>
+  <script src="home/home.js"></script>
+  <script src="products/products.js"></script>
+  <script src="restaurants/restaurants.js"></script>
+  <script src="componies/componies.js"></script>
+  <script src="cars/cars.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>
