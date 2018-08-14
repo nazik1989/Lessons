@@ -70,7 +70,7 @@
 
                 </div>
 
-                <div class="selectBoxesForm" style= "background-color:red; padding:15px;">
+                <div class="searchBoxesForm" style= "background-color:red; padding:15px;">
                 <form  >
                     <input type="text" placeholder="SEARCH NOW" name="search" style="background-color:#b30000;color:white;padding:5px;">
                     <button type="submit" style="background-color:#b30000;color:white;padding:5px;"><i class="fa fa-search"></i></button>
@@ -91,17 +91,9 @@
     </div>
 
     <div class="col-sm-6" style= "padding:20px;">
-        <div><h4 ng-click="GetValues(x.make,
-        x.model,
-        x.stars,
-        x.price,
-        x.description,
+        <div>
 
-        x.year,
-        x.transmission,
-
-        x.description,
-        x.useWay)"><b>{{x.make}} - {{x.model}}</b></h4>
+            <a  href="#!/home  "><h4><b>{{x.make}} - {{x.model}}</b></h4></a>
         </div>
       <div ><img src="{{x.stars}}" ng-style="myimageStars"></div>
       <h3 style="color:#cc3333">{{x.price |  currency: "$" : 0}}</h3>

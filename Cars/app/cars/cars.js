@@ -13,7 +13,7 @@ angular.module('myApp.cars', ['ngRoute'])
 
 
 
-    $http.get("cars/cars.json")
+    $http.get("http://localhost:8081/api/car_list")
         .then(function(response) {
             $scope.array = response.data;
 
