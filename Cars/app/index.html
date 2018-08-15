@@ -29,10 +29,10 @@
 
   <header>
 
-      <div class="row  firstDivInHeader1 h-100" ng-show="!showDiv">
-                <div class="col-sm-2"><p class="EnvatoMarket"> <img src="images/envato-icon-transparent.png" style="height: 20px;width: 20px;">envato<span style="color:#558000">market</span></p></div>
-        <div class="col-sm-4"></div>
-        <div class="col-sm-3 my-auto"><div class="card card-block w-25" style="float:right;"><button type="button" class="btn btn-success" style="border:none;">Buy now</button></div></div>
+      <div class="row  bg-dark " ng-show="!showDiv">
+                <div class="col-sm-2"><a href="https://account.envato.com/" style="text-decoration: none;"><p class="EnvatoMarket"> <img src="images/envato-icon-transparent.png" style="height: 20px;width: 20px;">envato<span style="color:#558000">market</span></p></a></div>
+        <div class="col-sm-5"></div>
+        <div class="col-sm-2 my-auto"><a class="btn btn-success btn-sm" href="#" role="button">Buy Now</a></div>
         <div col-sm-1  style="border-left:1px solid lightgray; height:75px;"></div>
         <div class="col-sm-2" style="float:right;"> <p class="RemoveFrame"><i class="fa fa-close" style="color:white" ng-click="showDiv =! showDiv"></i> Remove Frame</p></div>
       </div>
@@ -41,26 +41,27 @@
             <div class="col-sm-6">
               <p> <i class="fa fa-map-marker mt-2" style="font-size:15px"></i><b> AUTOSHOP</b><span style="font-size:15px;"> - 123 HOLDING, BUSAN,      KOREA</span></p>
             </div>
-            <div class="col-sm-1">
-              <a class="whiteRedLink" href="#!/">ACCOUNT</a>
+            <div class="col-sm-1 whiteRedLink">
+              <a  href="#!/">ACCOUNT</a>
             </div>
-            <div class="col-sm-1 ">
-              <a class="whiteRedLink" href="#!/">WISHLIST(0)</a>
+            <div class="col-sm-1 whiteRedLink">
+              <a c href="#!/">WISHLIST(0)</a>
             </div>
-            <div class="col-sm-1">
-              <a class="whiteRedLink" href="#!/">CHECKOUT</a>
+            <div class="col-sm-1 whiteRedLink">
+              <a  href="#!/">CHECKOUT</a>
             </div>
             <div class="col-sm-1" >
-              <i class="fa fa-shopping-basket box" ng-mouseover="showDetails = !showDetails" ng-mouseleave=showDetails=!showDetails><sup style="border:5px solid red;border-radius: 10px;background-color:red;"><b>2</b></sup></i>
+              <i class="fa fa-shopping-basket zambyux" ng-mouseover="showDetails = !showDetails" ng-mouseleave=showDetails=!showDetails></i><sup style="border:5px solid red;border-radius: 999em;background-color:red;"><b>2</b></sup>
 
             </div>
       </div>
     <!-- show-hide div gnumneri list skizb -->
     <div  ng-show="showDetails" style="position: absolute;
+    z-index: 1000000000;
   width: 15%;
   height: 30%;
   top:15%;
-  left:80%;"><img src="images/carDetal.png" style="height: 200px;width:150px;border:3px solid red"></div>
+  left:80%;"><img src="images/divWithZ-index.jpg" style="height: 300px;width:250px;"></div>
     </div>
 
     <div class="container" >
@@ -68,7 +69,7 @@
         <div class="col-sm-6"></div>
 
         <div class="col-sm-5" id="trapezoid">
-          <h6 style="color:white">Need support? Call us:&nbsp <span><b> <i class="fa fa-phone" style="font-size:16px"></i> 0123-456-789</b></span></h6>
+          <h6 style="color:white;padding-top: 13px;">Need support? Call us:&nbsp <span><b> <i class="fa fa-phone" style="font-size:16px"></i> 0123-456-789</b></span></h6>
         </div>
 
         <div class="col-sm-1"></div>
@@ -78,27 +79,29 @@
     <div class="container blackSexan" >
       <div class="row">
         <div class="col-sm-2"><img src=images/logo.png style="height: 70px;width: 150px"></div>
-        <div class="col-sm-10 row" id="Sexan">
-          <div ><a class="whiteRedLink" href="#!/home"><h5 style="color:white;font-size:15px;">HOME</h5></a></div>
+        <div class="col-sm-10 " id="Sexan">
+          <div class="row"  >
+          <div class="whiteRedLink" style="padding-top: 20px;"><a  href="#!/home">HOME</a></div>
+          <div class="col-sm-1" ></div>
+          <div class="whiteRedLink" style="padding-top: 20px;"><a   href="#!/cars  ">CARLISTING</a></div>
           <div class="col-sm-1"></div>
-          <div ><a class="whiteRedLink"  href="#!/cars  "><h5 style="color:white;font-size:15px;">CARLISTING</h5></a></div>
+          <div class="whiteRedLink" style="padding-top: 20px;"><a  href="#!/home">PRODUCT</a></div>
           <div class="col-sm-1"></div>
-          <div ><a class="whiteRedLink" href="#!/home"><h5 style="color:white;font-size:15px;">PRODUCT</h5></a></div>
+          <div class="whiteRedLink" style="padding-top: 20px;"><a  href="#!/home">PAGES</a></div>
           <div class="col-sm-1"></div>
-          <div ><a class="whiteRedLink" href="#!/home"><h5 style="color:white;font-size:15px;">PAGES</h5></a></div>
-          <div class="col-sm-1"></div>
-          <div ><a class="whiteRedLink" href="#!/home"><h5 style="color:white;font-size:15px;">CONTACT US</h5></a></div>
+          <div class="whiteRedLink" style="padding-top: 20px;"><a  href="#!/home">CONTACT US</a></div>
           <div class="col-sm-1"></div>
 
 
 
-                 <div >
+                <div class="row" style="padding-top: 10px;" >
               <input  type="search" value="Search..." style="background-color:#262626; border:1px solid #262626;width: 140px;height:46px;color:lightgray;"  >
-                 </div>
-                <div style="background-color:#262626; border:1px solid #262626;width: 20px;height:50px;color:white;">
-                  <i class="fa fa-search"></i>
-                 </div>
 
+                <div style="background-color:#262626; border:1px solid #262626;width: 20px;height:50px;color:white;">
+                <i class="fa fa-search" style="margin-top: 15px;"></i>
+                </div>
+                </div>
+          </div>
 
           </div>
 
@@ -109,17 +112,21 @@
     <div class="container" style="background-color: white;padding:10px;">
       <div class="container">
       <div class="row" >
-        <div class="col-sm-1" style="background-color:lightgray;"><i class="fa fa-home" style="font-size:24px;"></i></div>
+
+        <div class="pointer  pointerTun" ><i class="fa fa-home" style="font-size:15px;    margin-left: 10px;margin-top: 10px;"></i></div>
 
 
-        <div class="col-sm-2 " style="background-color:lightgray;" >Product</div>
+        <div class=" pointer pointerProduct"   ><p style="margin-left: 30px;
+    margin-top: 5px;color: #404040;">Product</p></div>
 
 
-        <div class="col-sm-2 " style="background-color:lightgray;">Tyres & Wheels</div>
+        <div class=" pointer pointerTyres" ><p style="margin-left: 30px;
+    margin-top: 5px;color: #404040;">Tyres & Wheels</p></div>
 
-        <div class="col-sm-4"></div>
 
-        <div class="col-sm-3 row" style="background-color:red;color:white;padding:5px;text-align: center"><i class="fa fa-upload" style="color:white"></i><p><b>&nbsp UPLOAD YOUR VEHICLE</b></p></div>
+
+        <button style="height: 50px;margin-left: 500px;color: white;background-color: red;"><i class="fa fa-upload" style="color:white"></i>&nbsp UPLOAD YOUR VEHICLE</button>
+
       </div>
       </div>
     </div>
@@ -182,7 +189,7 @@
 
   <div class="container" style= "background-color:#1a1a1a ">
     <div class="row">
-      <div class="col-sm-4 text-white">
+      <div class="col-sm-4 text-white" style="padding-bottom: 20px;">
         <h3 style="margin-bottom:15px ">COMPANY INFO</h3>
         <div class="row"style="margin-bottom:25px">
           <div class="col-sm-4"style="border-bottom: solid 2px red"></div><div class="col-sm-7"  style="border-bottom: solid 2px gray"></div>
@@ -194,7 +201,7 @@
         &#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;
         <p><p class="fa fa-envelope-o" aria-hidden ="true"> Support@htmlcs.com</p></p>
         &#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;&#x2212;
-        <p class="glyphicon glyphicon-globe">      http://www.ndktheme.com</p>
+        <i class="fa fa-globe" style="color:lightgray"> http://www.ndktheme.com</i>
       </div>
       <div class="col-sm-4 text-white">
         <h3 style="margin-bottom:15px ">NEWSLETTER</h3>
@@ -229,19 +236,21 @@
     </div>
   </div>
   </div>
-  <div class="container " style="margin-bottom:-30px">
-    <div class="row">
-      <div class="col-xl-12"  style="background-color:black; height:70px" >
-        <div class="col-md-6">
-          <h5 class="mt-5">© 2016 Designed by <b style="color:red">T3THEME</b>. All rights reserved</h5>
-          <div class="social-icon list-inline pull-right"style="margin-right:-500px">
-            <p class= "fa fa-facebook"></p>
-            <p class= "fa fa-google"></p>
-            <p class= "fa fa-youtube"></p>
-            <p class= "fa fa-facebook"></p>
-          </div>
+  <div class="container ">
+    <div class="row" style="background-color: black">
+
+        <div class="col-sm-6">
+          <h5 style="color:lightgray ">© 2016 DESIGNED BY <b style="color:red">T3THEME</b>. ALL RIGHTS RESERVED</h5>
         </div>
-      </div>
+      <div class="col-sm-3"></div>
+<div class="col-sm-3">
+            <i class= "fa fa-facebook"></i>
+            <i class= "fa fa-google"></i>
+            <i class= "fa fa-youtube"></i>
+            <i class= "fa fa-facebook"></i>
+</div>
+
+
     </div>
   </div>
 </footer>
