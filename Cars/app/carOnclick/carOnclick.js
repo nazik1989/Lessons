@@ -16,5 +16,6 @@ angular.module('myApp.carOnclick', ['ngRoute'])
         $http.get("http://localhost:8081/carOnclick")
             .then(function(response) {
                 $scope.todos = response.data;});
+        console.log($scope.todos);
 }]);
 

@@ -23,6 +23,31 @@ app.delete('/del_user', function (req, res) {
 // This responds a GET request for the /list_user page.
 app.get('/api/car_list', function (req, res) {
 	res.setHeader('Access-Control-Allow-Origin', '*');
+
+	 
+	   console.log("Got a GET request for /list_user");
+	   var myCars = [{"id":1,
+  "year":2001,
+  "iconYear":"cars/carsImage/iconyear.png",
+  "make":"Mercedes","model":"Maybach S560",
+  "image":"cars/carsImage/mercedesmaybachS560.jpg",
+  "condition":"use car",
+  "body":"compact",
+  "icontransmission":"cars/carsImage/icontransmission.png",
+  "transmission":"Automatic",
+  "iconuseWay":"cars/carsImage/iconuseWay.png",
+  "useWay":13000,
+  "price":240500,
+  "stars":"cars/carsImage/stars.png",
+  "description":"Nunc facilisis sagittis ullamcorper. Proin lectulputate"}];
+	      res.send(myCars);
+})
+  
+
+// This responds a GET request for the /list_user page.
+app.get('/api/car_list', function (req, res) {
+	res.setHeader('Access-Control-Allow-Origin', '*');
+
 	   console.log("Got a GET request for /list_user");
 	   var myCars = [{"id":1,
   "year":2001,
