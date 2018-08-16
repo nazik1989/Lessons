@@ -31,9 +31,8 @@
 
       <div class="row  bg-dark " ng-show="!showDiv">
                 <div class="col-sm-2"><a href="https://account.envato.com/" style="text-decoration: none;"><p class="EnvatoMarket"> <img src="images/envato-icon-transparent.png" style="height: 20px;width: 20px;">envato<span style="color:#558000">market</span></p></a></div>
-        <div class="col-sm-5"></div>
-        <div class="col-sm-2 my-auto"><a class="btn btn-success btn-sm" href="#" role="button">Buy Now</a></div>
-        <div col-sm-1  style="border-left:1px solid lightgray; height:75px;"></div>
+        <div class="col-sm-6"></div>
+        <div class="col-sm-2 my-auto"><a class="btn btn-success btn-sm" href="#" role="button" style="margin-left: 150px;">Buy Now</a></div>
         <div class="col-sm-2" style="float:right;"> <p class="RemoveFrame"><i class="fa fa-close" style="color:white" ng-click="showDiv =! showDiv"></i> Remove Frame</p></div>
       </div>
 
@@ -78,23 +77,21 @@
 
     <div class="container blackSexan" >
       <div class="row">
-        <div class="col-sm-2"><img src=images/logo.png style="height: 70px;width: 150px"></div>
+        <div class="col-sm-2"><img src=images/AvtoShopLogo.png style="height: 70px;width: 150px"></div>
         <div class="col-sm-10 " id="Sexan">
           <div class="row"  >
           <div class="whiteRedLink" style="padding-top: 20px;"><a  href="#!/home">HOME</a></div>
           <div class="col-sm-1" ></div>
           <div class="whiteRedLink" style="padding-top: 20px;"><a   href="#!/cars  ">CARLISTING</a></div>
           <div class="col-sm-1"></div>
-          <div class="whiteRedLink" style="padding-top: 20px;"><a  href="#!/home">PRODUCT</a></div>
+          <div class="whiteRedLink" style="padding-top: 20px;"><a  href="#!/product">PRODUCT</a></div>
           <div class="col-sm-1"></div>
-          <div class="whiteRedLink" style="padding-top: 20px;"><a  href="#!/home">PAGES</a></div>
+          <div class="whiteRedLink" style="padding-top: 20px;"><a  href="#!/pages">PAGES</a></div>
           <div class="col-sm-1"></div>
-          <div class="whiteRedLink" style="padding-top: 20px;"><a  href="#!/home">CONTACT US</a></div>
+          <div class="whiteRedLink" style="padding-top: 20px;"><a  href="#!/contact">CONTACT US</a></div>
           <div class="col-sm-1"></div>
 
-
-
-                <div class="row" style="padding-top: 10px;" >
+            <div class="row" style="padding-top: 10px;" >
               <input  type="search" value="Search..." style="background-color:#262626; border:1px solid #262626;width: 140px;height:46px;color:lightgray;"  >
 
                 <div style="background-color:#262626; border:1px solid #262626;width: 20px;height:50px;color:white;">
@@ -130,49 +127,6 @@
       </div>
       </div>
     </div>
-<!--
-    <div class="container">
-      <div class="col-md-12  row  menu-one">
-          <div class="col-md-3"></div>
-          <div id="col-md-9" class="col-md-9 row">
-            <div id="triangle-bottomright" class="red-triangle"></div>
-            <div class="square sq1">
-              <h5 class="text-white mt-4 h5-text">Need support? Call us:</h5>
-              <div class="phone mt-4">
-                <a class="" href="#"><b><i class="fa fa-phone" style="font-size:24px"></i>0123-456-789</b></a>
-              </div>
-            </div>
-            <div id="triangle-bottomleft"></div>
-          </div>
-        </div>
-        <div class="col-md-12 row">
-          <div class="col-md-1 logo-div">
-            <a href="#" class="logo"><img class="logo-img" src="images/logo.png" alt="logo"></a>
-          </div>
-          <div class="triangle-bottomright triangle-right"></div>
-          <div class="square sq2">
-            <ul class=" row ml-3 menu-two">
-              <li><a href="#!/home">HOME</a></li>
-              <li class="ml-3"><a href="#!/cars">CARLISTING</a></li>
-              <li class="ml-3"><a href="#!/products">PRODUCT</a></li>
-              <li class="ml-3"><a href="#">PAGES</a></li>
-              <li class="ml-3"><a href="#">CONTACT US</a></li>
-            </ul>
-
-            <div class="input-group col-md-4">
-              <input class="form-control text-white py-2 mt-4" type="search" placeholder="Search" id="example-search-input">
-              <span class="input-group-append">
-                            <button class="btn btn-outline-secondary mt-4 icon-search" type="button">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
-            </div>
-          </div>
-        </div>
-
-    </div>
-
-    -->
   </header>
 
 
@@ -184,9 +138,6 @@
   <div ng-view></div>
 
 <footer>
-
-
-
   <div class="container" style= "background-color:#1a1a1a ">
     <div class="row">
       <div class="col-sm-4 text-white" style="padding-bottom: 20px;">
@@ -263,13 +214,9 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
   <script src="home/home.js"></script>
-  <script src="products/products.js"></script>
-  <script src="restaurants/restaurants.js"></script>
-  <script src="componies/componies.js"></script>
   <script src="cars/cars.js"></script>
+  <script src="carOnclick/carOnclick.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
