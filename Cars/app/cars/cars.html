@@ -115,11 +115,11 @@
                       </select>
     </div>
 </div>
-              </div>
+</div>
 
-<div  style="padding:10px;" ng-repeat="x in todos"  >
+<div  style="padding:10px;" ng-repeat="x in FiltredArray "  >
 
-<div  class="row" style= "background-color:#f2f2f2">
+<div  class="row" style= "background-color:#f2f2f2" >
     <div class="col-sm-6" style= "padding:15px;" >
       <img src="{{x.image}}" style="width:350px;height:200px;">
     </div>
@@ -127,9 +127,9 @@
     <div class="col-sm-6" style= "padding:20px;">
         <div>
 
-            <a  href="#!/carOnclick  "><h4><b>{{x.make}} - {{x.model}}</b></h4></a>
+            <a  href="#!/carOnclick  " ><h4><b>{{x.make}} - {{x.model}}</b></h4></a>
         </div>
-      <div ><img src="{{x.stars}}" style="width:70px;height:13px;"></div>
+      <div ><img src="{{x.stars}}" style="width:70px;height:13px;">{{x.id}}</div>
       <h3 style="color:#cc3333">{{x.price |  currency: "$" : 0}}</h3>
       <p style="color:gray;">{{x.description}}</p>
 
@@ -148,6 +148,16 @@
 
 </div>
 </div>
+          <div class="row paginationRow">
+          <div class="pagination" id="1" data-ng-click="PaginationFunction($event)"><h5>1</h5></div>
+          <div class="pagination" id="2" data-ng-click="PaginationFunction($event)"><h5>2</h5></div>
+          <div class="pagination" id="3" data-ng-click="PaginationFunction($event)"><h5>3</h5></div>
+          <div class="pagination" id="4" data-ng-click="PaginationFunction($event)"><h5>4</h5></div>
+          <div class="pagination" id="5" data-ng-click="PaginationFunction($event)"><h5>5</h5></div>
+          <div class="pagination" id="6" data-ng-click="PaginationFunction($event)"><h5>6</h5></div>
+          <div class="pagination" id="7" data-ng-click="PaginationFunction($event)"><h5>7</h5></div>
+          <div class="pagination" id="8" data-ng-click="PaginationFunction($event)"><h5>8</h5></div>
+          </div>
 
     </div><!-- cars Block div enq -->
   </div> <!-- container div row end -->

@@ -1,13 +1,14 @@
 
 <div class="container">
    <h2 style="color:white">Car Parametrs</h2>
-    <div  style="padding:10px;" ng-repeat="x in todos"  >
+    <div  style="padding:10px;background-color:white;" ng-repeat = "x in todos | filter:{'id':todos[x]}:true">
 
         <img src="{{x.image}}" style="width:350px;height:200px;">
         <h4><b>{{x.make}} - {{x.model}}</b></h4>
         <img src="{{x.stars}}" style="width:70px;height:13px;">
         <h3 style="color:#cc3333">{{x.price |  currency: "$" : 0}}</h3>
         <p style="color:gray;">{{x.description}}</p>
+        <p style="color:gray;" >{{x.id}}</p>
 
     </div>
 </div>

@@ -30,7 +30,7 @@
   <header>
 
       <div class="row  bg-dark " ng-show="!showDiv">
-                <div class="col-sm-2"><a href="https://account.envato.com/" style="text-decoration: none;"><p class="EnvatoMarket"> <img src="images/envato-icon-transparent.png" style="height: 20px;width: 20px;">envato<span style="color:#558000">market</span></p></a></div>
+                <div class="col-sm-2 row"><a href="https://account.envato.com/" style="text-decoration: none;margin-left:15px;"><p class="EnvatoMarket"> <img src="images/envato-icon-transparent.png" style="height: 20px;width: 20px;">envato<span style="color:#558000">market</span></p></a></div>
         <div class="col-sm-6"></div>
         <div class="col-sm-2 my-auto"><a class="btn btn-success btn-sm" href="#" role="button" style="margin-left: 150px;">Buy Now</a></div>
         <div class="col-sm-2" style="float:right;"> <p class="RemoveFrame"><i class="fa fa-close" style="color:white" ng-click="showDiv =! showDiv"></i> Remove Frame</p></div>
@@ -41,10 +41,10 @@
               <p> <i class="fa fa-map-marker mt-2" style="font-size:15px"></i><b> AUTOSHOP</b><span style="font-size:15px;"> - 123 HOLDING, BUSAN,      KOREA</span></p>
             </div>
             <div class="col-sm-1 whiteRedLink">
-              <a  href="#!/">ACCOUNT</a>
+              <a  href="#!/admin">ACCOUNT</a>
             </div>
             <div class="col-sm-1 whiteRedLink">
-              <a c href="#!/">WISHLIST(0)</a>
+              <a  href="#!/">WISHLIST(0)</a>
             </div>
             <div class="col-sm-1 whiteRedLink">
               <a  href="#!/">CHECKOUT</a>
@@ -89,7 +89,7 @@
           <div class="whiteRedLink" style="padding-top: 20px;"><a  href="#!/pages">PAGES</a></div>
           <div class="col-sm-1"></div>
           <div class="whiteRedLink" style="padding-top: 20px;"><a  href="#!/contact">CONTACT US</a></div>
-          <div class="col-sm-1"></div>
+          <div class="col-sm-1 whiteRedLink" style="padding-top: 20px;"><a  href="#!/admin">ADMIN</a></div>
 
             <div class="row" style="padding-top: 10px;" >
               <input  type="search" value="Search..." style="background-color:#262626; border:1px solid #262626;width: 140px;height:46px;color:lightgray;"  >
@@ -217,6 +217,7 @@
   <script src="home/home.js"></script>
   <script src="cars/cars.js"></script>
   <script src="carOnclick/carOnclick.js"></script>
+  <script src="admin/admin.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>

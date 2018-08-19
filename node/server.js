@@ -1,6 +1,8 @@
 var express = require('express');
-var express = require('express');
+// npm install --save express-fileupload ենք անում, որ կարողանանք օգտագործել express-fileupload մոդուլը Ֆայլ ներբեռնելու համար
+const fileUpload = require('express-fileupload');
 var app = express();
+app.use(fileUpload());
 
 // This responds with "Hello World" on the homepage
 app.get('/', function (req, res) {
@@ -8,11 +10,24 @@ app.get('/', function (req, res) {
    res.send('Hello GET');
 })
 
-// This responds a POST request for the homepage
-app.post('/', function (req, res) {
-   console.log("Got a POST request for the homepage");
-   res.send('Hello POST');
+// post request է ուղարկվել  file_uploadPage էջին
+app.post('/file_uploadPage', function (req, res) {
+    if (!req.files)
+        return res.status(400).send('No files were uploaded.');
+// Փոփոխական, որը վերցնում է ուղարկված ֆայլը
+    let SomeFile = req.files.inputfileName;
+
+// Use the mv() method to place the file somewhere on your server
+// Օգտագործում ենք mv() մեթոդը մեր upload արած ֆայլը սերվերում ինչ-որ տեղ տեղադրելու համար(FolderUploadFiles պապկայի մեջ)
+    SomeFile.mv('../Cars/app/cars/carsImage/'+SomeFile.name, function(err) {
+        if (err)
+            return res.status(500).send(err);
+
+        res.send('Ֆայլը գցել է carsImage պապկայի մեջ:Գնացեք կոֆե խմելու');
+    });
 })
+
+
 
 // This responds a DELETE request for the /del_user page.
 app.delete('/del_user', function (req, res) {
@@ -24,32 +39,22 @@ app.delete('/del_user', function (req, res) {
 app.get('/api/car_list', function (req, res) {
 	res.setHeader('Access-Control-Allow-Origin', '*');
 
-	 
-	   console.log("Got a GET request for /list_user");
-	   var myCars = [{"id":1,
+	   console.log("Դուք GET request ուղարկեցիք /api/car_list ին");
+	   var myCars = [ {"id":0,
   "year":2001,
   "iconYear":"cars/carsImage/iconyear.png",
-  "make":"Mercedes","model":"Maybach S560",
-  "image":"cars/carsImage/mercedesmaybachS560.jpg",
+  "make":"Lada","model":"06",
+  "image":"cars/carsImage/lada06.jpg",
   "condition":"use car",
   "body":"compact",
   "icontransmission":"cars/carsImage/icontransmission.png",
-  "transmission":"Automatic",
+  "transmission":"NoAutomatic",
   "iconuseWay":"cars/carsImage/iconuseWay.png",
   "useWay":13000,
-  "price":240500,
+  "price":150000,
   "stars":"cars/carsImage/stars.png",
-  "description":"Nunc facilisis sagittis ullamcorper. Proin lectulputate"}];
-	      res.send(myCars);
-})
-  
-
-// This responds a GET request for the /list_user page.
-app.get('/api/car_list', function (req, res) {
-	res.setHeader('Access-Control-Allow-Origin', '*');
-
-	   console.log("Got a GET request for /list_user");
-	   var myCars = [{"id":1,
+  "description":"Nunc facilisis sagittis ullamcorper. Proin lectulputate"},
+  {"id":1,
   "year":2001,
   "iconYear":"cars/carsImage/iconyear.png",
   "make":"Mercedes","model":"Maybach S560",
@@ -571,6 +576,32 @@ app.get('/api/car_list', function (req, res) {
 	      res.send(myCars);
 })
 
+// This responds a GET request for the /carOnclick page.
+app.get('/carOnclickNode', function (req, res) {
+	res.setHeader('Access-Control-Allow-Origin', '*');
+
+	 
+	   console.log("Got a GET request for /carOnclick");
+	   var myCars = [{"id":1,
+  "year":2001,
+  "iconYear":"cars/carsImage/iconyear.png",
+  "make":"Mercedes","model":"Maybach S560",
+  "image":"cars/carsImage/mercedesmaybachS560.jpg",
+  "condition":"use car",
+  "body":"compact",
+  "icontransmission":"cars/carsImage/icontransmission.png",
+  "transmission":"Automatic",
+  "iconuseWay":"cars/carsImage/iconuseWay.png",
+  "useWay":13000,
+  "price":240500,
+  "stars":"cars/carsImage/stars.png",
+  "description":"Nunc facilisis sagittis ullamcorper. Proin lectulputate"}];
+	      res.send(myCars);
+})
+  
+
+
+
 // This responds a GET request for abcd, abxcd, ab123cd, and so on
 app.get('/ab*cd', function(req, res) {   
    console.log("Got a GET request for /ab*cd");
@@ -582,5 +613,5 @@ var server = app.listen(8081, function () {
    var host = server.address().address
    var port = server.address().port
 
-   console.log("Example app listening at http://%s:%s", host, port)
+   console.log("Բարև, աշխատող սերվեր http://%s:%s", host, port)
 })

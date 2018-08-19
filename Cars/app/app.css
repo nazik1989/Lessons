@@ -12,6 +12,7 @@ font-size : 50px;
 text-align: center;
 
 }*/
+/*
 .headerMenu{
 
   padding: 10px;
@@ -22,10 +23,11 @@ text-align: center;
 }
 .menu {
   list-style: none;
-  /* border-bottom: 0.1em solid red;*/
+  border-bottom: 0.1em solid red;
   margin-bottom: 2em;
   padding: 0 0 0.5em;
 }
+*/
 
 /*.menu:before {
   content: "[";
@@ -35,19 +37,32 @@ text-align: center;
   content: "]";
 }*/
 
-.menu > li {
+/*.menu > li {
   display: inline;
-}
+}*/
 
-.menu > li + li:before {
+/*.menu > li + li:before {
   content: "|";
   padding-right: 0.3em;
-}
+}*/
 
 /*.firstDivInHeader{
   margin-bottom: 35px;
 }
 */
+.paginationRow{
+  padding:20px 20px;
+}
+.pagination{
+  cursor: pointer;
+  margin-left:2px;
+  padding:10px 10px;
+  border:2px solid darkgray;
+  color:cadetblue;
+}
+.pagination h5{
+  margin-left: 20px;
+  margin-right: 10px;}
 
 .RemoveFrame {
   color: gray;

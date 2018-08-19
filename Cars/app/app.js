@@ -6,6 +6,7 @@ angular.module('myApp', [
     'myApp.home',
     'myApp.cars',
     'myApp.carOnclick',
+    'myApp.admin',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

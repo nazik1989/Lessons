@@ -9,13 +9,23 @@ angular.module('myApp.carOnclick', ['ngRoute'])
         });
     }])
 
-    .controller('CarsCtrl', ['$scope','$http',function($scope,$http) {
+    .controller('CarOnclickCtrl', ['$scope','$http',function($scope,$http) {
 
 
 
-        $http.get("http://localhost:8081/carOnclick")
+        $http.get("http://localhost:8081/api/car_list")
             .then(function(response) {
                 $scope.todos = response.data;});
-        console.log($scope.todos);
-}]);
 
+
+
+
+/* $scope.filterValues = [1,8];
+        $scope.myFilter = function(value) {
+        return ($scope.filterValues.indexOf(value.id) !== -1);
+        };
+
+        in carOnclickHtml
+        <div ng-repeat="user in users |  filter: myFilter">
+    */
+}]);
