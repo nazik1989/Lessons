@@ -11,11 +11,12 @@ angular.module('myApp.carOnclick', ['ngRoute'])
 
     .controller('CarOnclickCtrl', ['$scope','$http',function($scope,$http) {
 
-
-
-        $http.get("http://localhost:8081/api/car_list")
+        $http.get("http://localhost:8081/myCars/*")
             .then(function(response) {
-                $scope.todos = response.data;});
+                $scope.todos = response.data;
+
+                });
+
 
 
 

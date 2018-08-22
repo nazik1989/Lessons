@@ -11,28 +11,37 @@ angular.module('myApp.cars', ['ngRoute'])
 
 .controller('CarsCtrl', ['$scope','$http',function($scope,$http) {
 
-
-
     $http.get("http://localhost:8081/api/car_list")
         .then(function(response) {
             $scope.todos = response.data;
-            $scope.FiltredArray = [];
-            $scope.FiltredArray.push($scope.todos[0]);
-            $scope.FiltredArray.push($scope.todos[1]);
-            $scope.FiltredArray.push($scope.todos[2]);
-            $scope.FiltredArray.push($scope.todos[3]);
-            $scope.FiltredArray.push($scope.todos[4]);
 
+
+            $scope.carOnPage = 5; // էջիս երևացող մեքենաների քանակը
+            $scope.startFrom = 0; //  ցույց տալ սկսած startFrom-րդ անդամից
+            $scope.CountPageDivs = [];
+            for(var i=1; i <= Math.round($scope.todos.length/5); i++) {
+                $scope.CountPageDivs.push(i);
+            }
             $scope.PaginationFunction = function(event){
                 $scope.turId = event.target.id;
-                $scope.keyTodos= ($scope.turId-1)*5;
-                $scope.FiltredArray.splice(0,5);
-                $scope.FiltredArray.push($scope.todos[$scope.keyTodos]);
-                $scope.FiltredArray.push($scope.todos[$scope.keyTodos+1]);
-                $scope.FiltredArray.push($scope.todos[$scope.keyTodos+2]);
-                $scope.FiltredArray.push($scope.todos[$scope.keyTodos+3]);
-                $scope.FiltredArray.push($scope.todos[$scope.keyTodos+4]);};
+               $scope.startFrom= ($scope.turId-1)*$scope.carOnPage;
+                };
 
 
-     });
+            /*
+            $scope.PaginationFunction2 = function(event){
+
+                $scope.startFrom=5;
+            };
+            $scope.PaginationFunction3 = function(event){
+
+                $scope.startFrom=10;
+            };
+            $scope.PaginationFunction4 = function(event){
+
+                $scope.startFrom=15;
+            };
+            */
+
+        });
 }]);
