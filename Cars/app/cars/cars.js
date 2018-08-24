@@ -6,7 +6,8 @@ angular.module('myApp.cars', ['ngRoute'])
   $routeProvider.when('/cars', {
     templateUrl: 'cars/cars.html',
     controller: 'CarsCtrl'
-  });
+  })
+
 }])
 
 .controller('CarsCtrl', ['$scope','$http',function($scope,$http) {
@@ -15,33 +16,16 @@ angular.module('myApp.cars', ['ngRoute'])
         .then(function(response) {
             $scope.todos = response.data;
 
-
             $scope.carOnPage = 5; // էջիս երևացող մեքենաների քանակը
             $scope.startFrom = 0; //  ցույց տալ սկսած startFrom-րդ անդամից
             $scope.CountPageDivs = [];
-            for(var i=1; i <= Math.round($scope.todos.length/5); i++) {
+            for(var i=1; i <= Math.round($scope.todos.length/5+ 0.5); i++) {
                 $scope.CountPageDivs.push(i);
             }
             $scope.PaginationFunction = function(event){
                 $scope.turId = event.target.id;
                $scope.startFrom= ($scope.turId-1)*$scope.carOnPage;
                 };
-
-
-            /*
-            $scope.PaginationFunction2 = function(event){
-
-                $scope.startFrom=5;
-            };
-            $scope.PaginationFunction3 = function(event){
-
-                $scope.startFrom=10;
-            };
-            $scope.PaginationFunction4 = function(event){
-
-                $scope.startFrom=15;
-            };
-            */
 
         });
 }]);

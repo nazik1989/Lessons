@@ -2,11 +2,12 @@ var express = require('express');
 // npm install --save express-fileupload ենք անում, որ կարողանանք օգտագործել express-fileupload մոդուլը Ֆայլ ներբեռնելու համար
 const fileUpload = require('express-fileupload');
 var MongoClient = require('mongodb').MongoClient // npm install mongodb ենք անում, որ աշխատի սա
+var dbUrl = 'mongodb://localhost:27017/AutoShop';
+var dbName = 'AutoShop';
+var collName = 'cars';
 var app = express();
 app.use(fileUpload());
-var myCars = require('./cars.json');
-//var oneCarPage = require('./oneCar');
-
+var myCarsJson = require('./cars.json');
 var fs = require('fs');
 var http = require('http');
 
@@ -39,60 +40,22 @@ app.delete('/del_user', function (req, res) {
    res.send('Hello DELETE');
 })
 
-
-/*app.get('/toursall', function(req, res) {
-
-    res.json(tours);
-});*/
-
 // This responds a GET request for the /list_user page.
 app.get('/api/car_list', function (req, res) {
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	console.log("Դուք GET request ուղարկեցիք /api/car_list ին");
-	 res.send(myCars);
-	 
-	 app.get('/myCars/:id?', function(req, res) {
-	res.setHeader('Access-Control-Allow-Origin', '*');
-   responseOneCar = req.params.id !== undefined ?
-       myCars.filter(     function(obj)   {return obj.id== req.params.id} )
-       : myCars;
-  // res.send(responseOneCar);
-    
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('<h1>'+ 'Car id - ' +responseOneCar[0].id+'</h1>'+
-              '<h2>'+ 'Make - ' +responseOneCar[0].make+'</h2>'+
-			  '<h2>'+ 'Model - ' +responseOneCar[0].model+'</h3>'+
-			  '<h2>'+ 'Year - ' +responseOneCar[0].year+'</h4>'+
-			  '<h2>'+ 'Price - ' +responseOneCar[0].price+'</h5>'+
-			  '<h2>'+ 'Useway - ' +responseOneCar[0].useWay+'</h6>'+
-			  '<h2>'+ 'Body - ' +responseOneCar[0].body+'</h6>'+
-			  '<h2>'+ 'Condition - ' +responseOneCar[0].condition+'</h6>'+
-			  '<h2>'+ 'Trnmission - ' +responseOneCar[0].transmission+'</h6>'+
-			  '<h2>'+ 'Description - ' +responseOneCar[0].description+'</h6>'+
-			  "<img src= '"+responseOneCar[0].image+"'>");
-	 
-    res.end();    
-});
-})
-
-// This responds a GET request for the /carOnclick page.
-app.get('/carOnclickNode', function (req, res) {
-	res.setHeader('Access-Control-Allow-Origin', '*');
-	console.log("Got a GET request for /carOnclick");
-MongoClient.connect('mongodb://localhost:27017/AutoShop', function (err, client) {
+	MongoClient.connect(dbUrl, function (err, client) {
   if (err) throw err
 
-  var db = client.db('AutoShop')
+  var db = client.db(dbName)
   
-  db.collection('cars').find().toArray(function (err, result) {
+  db.collection(collName).find().toArray(function (err, myCars) {
     if (err) throw err
+	res.send(myCars);
 
-    console.log(result);
-	res.send(result);
-		})
-	})
+	})	 
+  });
 })
-  
 
 // This responds a GET request for abcd, abxcd, ab123cd, and so on
 app.get('/ab*cd', function(req, res) {   

@@ -8,25 +8,23 @@ angular.module('myApp.carOnclick', ['ngRoute'])
             controller: 'CarOnclickCtrl'
         });
     }])
+    .controller('CarOnclickCtrl', ['$scope','$http','$location',function($scope,$http,$location) {
 
-    .controller('CarOnclickCtrl', ['$scope','$http',function($scope,$http) {
-
-        $http.get("http://localhost:8081/myCars/*")
+        $http.get("http://localhost:8081/api/car_list")
             .then(function(response) {
-                $scope.todos = response.data;
+                var cars = response.data;
 
-                });
+                var PageUrl = $location.url();
+                console.log(PageUrl);
+                var carId = PageUrl.slice(12);
+                var FindCarById = function(TakeId){
+                    return cars.find(x => x._id === TakeId);
+                }
+                     $scope.oneCar =  FindCarById(carId);
 
 
+                // $scope.hashik = $location.hash();
 
 
-
-/* $scope.filterValues = [1,8];
-        $scope.myFilter = function(value) {
-        return ($scope.filterValues.indexOf(value.id) !== -1);
-        };
-
-        in carOnclickHtml
-        <div ng-repeat="user in users |  filter: myFilter">
-    */
-}]);
+            });
+    }]);
