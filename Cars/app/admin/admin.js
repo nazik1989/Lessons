@@ -15,7 +15,7 @@ angular.module('myApp.admin', ['ngRoute'])
             .then(function(response) {
                 $scope.cars = response.data;;
             });
-
+/*
                     $scope.create = function() {
                     console.log($scope.car);
                     $http.post('http://localhost:8081/create',$scope.car).
@@ -25,6 +25,6 @@ angular.module('myApp.admin', ['ngRoute'])
                         console.error("error in posting");
                     })
                   }
-
+*/
 
     }]);
