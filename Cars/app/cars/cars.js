@@ -19,7 +19,7 @@ angular.module('myApp.cars', ['ngRoute'])
             $scope.carOnPage = 5; // էջիս երևացող մեքենաների քանակը
             $scope.startFrom = 0; //  ցույց տալ սկսած startFrom-րդ անդամից
             $scope.CountPageDivs = [];
-            for(var i=1; i <= Math.round($scope.todos.length/5+ 0.5); i++) {
+            for(var i=1; i <= Math.ceil($scope.todos.length/5); i++) {
                 $scope.CountPageDivs.push(i);
             }
             $scope.PaginationFunction = function(event){
