@@ -1,0 +1,53 @@
+<div class="container">
+    <h2>
+        <i class=" fa fa-address-card" style="color:deepskyblue;font-size:200px;margin-right: 10px;"></i>Create User
+        </h2>
+    <form name='myForm' enctype="multipart/form-data" novalidate>
+        <div class="form-group" >
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name"  ng-model="customer.name" name="name"  >
+            <p class="errors">{{errors.nameError}}</p>
+
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Lastname:</label>
+            <input type="text" class="form-control" id="lastname"  ng-model="customer.lastname" name="lastname" >
+            <p class="errors">{{errors.lastnameError}}</p>
+        </div>
+
+        <div class="form-group">
+
+            <label>Email:</label>
+                <input type="email"  ng-model="customer.email"  name="email" >
+            <p class="errors">{{errors.emailError}}</p>
+
+
+        </div>
+
+
+        <div class="form-group">
+            <label for="file">Image:</label>
+            <input type="file" class="form-control" id="file"  file-model="customer.file">
+            <p class="errors">{{errors.imageError}}</p>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <a class="btn btn-primary" type="submit"  ng-click = "Create()">Only for Create</a>
+            </div>
+
+            <div class="col-sm-6">
+            <a class="btn btn-warning" type="submit" href="#!/user" ng-click = "Edite() ">Only for Edite</a>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+
+
+
+
+

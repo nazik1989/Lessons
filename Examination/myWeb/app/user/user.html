@@ -1,0 +1,28 @@
+<div class="container-fluid" style='background-color:#ffffff'>
+    <div class="row">
+        <div class="col-md-5 ml-5" style="padding:10px;" ng-repeat="x in users" >
+            <div class="row">
+                <div class="col-sm-10" >
+                    <div class="col-sm-12">
+                    <img src="../../node/images/{{x.img[0].filename}}" style="width:400px;height:300px;border-radius:10px;border:3px solid dodgerblue">
+                    </div>
+                    <div class="col-sm-6"></div>
+                    <p style="color:black "><b>Name</b> {{x.name}}  <b>Lastname</b> {{x.lastname}}</p>
+                    <p style="color:black "><b>Email</b> {{x.email}}</p>
+                </div>
+
+                <div class="col-sm-2">
+                    <a class="btn btn-danger btn-sm mb-2 width80" href="" role="button" ng-click="deleteUser(x._id)"><i class="fa fa-user-times" style="color:white; margin-right:5px"></i>Delete</a>
+                    <a class="btn btn-primary btn-sm mb-2 width80" ng-href="#!viewone/?{{x._id}}"><i class="fa fa-user" style="color:white; margin-right:10px"></i>View</a>
+                    <a class="btn btn-warning btn-sm mb-2 width80" style="color:white;" href="#!/admin?{{x._id}}" role="button"><i class="fa fa-user" style="color:white"></i><i class="fa fa-exchange" style="color:white"></i><i class="fa fa-user" style="color:white; margin-right:3px"></i>Edit</a>
+
+                </div>
+
+            </div>
+
+            <!--<p>Orgn: {{x.img[0].filename}}</p>-->
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,28 @@
+a:hover {
+  color: gray;
+  text-decoration: none;
+}
+header{
+  position: fixed;
+  left: 0;
+  top: 0;
+  hight: 100%;
+  color: white;
+  text-align: center;
+  padding:10px;
+}
+
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding:10px;
+}
+
+
+.width80{width:80px}
+.errors{color:red}
