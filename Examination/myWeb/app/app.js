@@ -9,6 +9,7 @@ const app = angular.module('myApp', [
     'myApp.user',
     'myApp.viewone',
     'myApp.admin',
+    'myApp.updateForm',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

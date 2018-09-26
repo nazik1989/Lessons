@@ -24,7 +24,7 @@ angular.module('myApp.user', ['ngRoute'])
                 //$scope.oneUser = res.data;
                 // console.log("nnn"+res.data);
             });
-            // -------------- Timeout function for update my page  ----------------------//
+           // -------------- Timeout function for update my page  ----------------------//
             function timeoutFunction() {
                 setTimeout(function(){location.reload(); }, 200);}
             timeoutFunction();

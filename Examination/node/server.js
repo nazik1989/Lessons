@@ -88,9 +88,9 @@ app.post('/one_user_view', function (req, res) {
             success = false;
         }
               res.send(errors);
-        res.end()
+              res.end()
          if (success==true){
-            console.log("dgfjdss");
+           // console.log("dgfjjhgdss");
             MongoClient.connect(dbUrl, { useNewUrlParser: true },function (err, client) {
                 if (err) throw err
 
@@ -115,29 +115,55 @@ app.post('/one_user_view', function (req, res) {
 app.post('/update_user', function (req, res) {
    // console.log(req.body.hinId);
    // console.log(req.files + typeof(req.files));
-res.end();
+    var errors ={};
+    success = true;
 
-    MongoClient.connect(dbUrl, { useNewUrlParser: true },function(err, client){
-        if(err) return console.log(err);
-             const db = client.db(dbName);
-        const col = db.collection(collName);
-        db.collection(collName).update(
-            {_id: ObjectId(req.body.hinId)},              // критерий выборки
-            {       name:req.body.name,
-                    lastname:req.body.lastname,
-                    email:req.body.email,
-                    img:req.files
-                   },     // параметр обновления
-            {                           // доп. опции обновления
-                returnOriginal: false
-            },
-            function(err, result){
+    if(req.body.name === undefined) {
 
-                console.log("1 document updated");
-                client.close();
-            }
-        );
-    });
+        errors.nameError = "Name is empty";
+        success = false;
+    }
+    if(req.body.lastname === undefined) {
+
+        errors.lastnameError = "Lastname is empty";
+        success = false;
+    }
+    if(req.body.email === undefined) {
+
+        errors.emailError = "Email is empty";
+        success = false;
+    }
+    if(req.files[0] === undefined) {
+
+        errors.imageError = "Image is empty";
+        success = false;
+    }
+    res.send(errors);
+    res.end();
+    if (success==true) {
+        MongoClient.connect(dbUrl, {useNewUrlParser: true}, function (err, client) {
+            if (err) return console.log(err);
+            const db = client.db(dbName);
+            const col = db.collection(collName);
+            db.collection(collName).update(
+                {_id: ObjectId(req.body.hinId)},              // критерий выборки
+                {
+                    name: req.body.name,
+                    lastname: req.body.lastname,
+                    email: req.body.email,
+                    img: req.files
+                },     // параметр обновления
+                {                           // доп. опции обновления
+                    returnOriginal: false
+                },
+                function (err, result) {
+
+                    console.log("1 document updated");
+                    client.close();
+                }
+            );
+        });
+    }
 
 })
 

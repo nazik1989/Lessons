@@ -15,32 +15,31 @@ angular.module('myApp.admin', ['ngRoute'])
 
         $scope.Create = function(){
             var uploadUrl = "http://127.0.0.1:8081/create_user";
-            service.post(uploadUrl, $scope.customer) .then(res=>{
-
+            service.post(uploadUrl, $scope.customer) .then(function(res) {
                 $scope.errors = res.data;
-               console.log($scope.errors);
+               //console.log($scope.errors);
             });
-
+        };
             // // -------------- Timeout function for update my page  ----------------------//
             // function timeoutFunction() {
             //     setTimeout(function(){location.reload(); }, 200);}
             // timeoutFunction();
-        };
 
-        var PageUrl = $location.url();
-        var userId = PageUrl.slice(7);
-        $scope.customer.hinId = userId;
-            $scope.Edite = function(){
-             var uploadUrl = "http://127.0.0.1:8081/update_user";
-             service.post(uploadUrl, $scope.customer);
-           // console.log("userId"+userId);
-           //console.log("request"+ $scope.customer);
-
-                // -------------- Timeout function for update my page  ----------------------//
-                function timeoutFunction() {
-                    setTimeout(function(){location.reload(); }, 200);}
-                timeoutFunction();
-        };
+        //
+        // var PageUrl = $location.url();
+        // var userId = PageUrl.slice(7);
+        // $scope.customer.hinId = userId;
+        //     $scope.Edite = function(){
+        //      var uploadUrl = "http://127.0.0.1:8081/update_user";
+        //      service.post(uploadUrl, $scope.customer);
+        //    // console.log("userId"+userId);
+        //    //console.log("request"+ $scope.customer);
+        //
+        //         // -------------- Timeout function for update my page  ----------------------//
+        //         // function timeoutFunction() {
+        //         //     setTimeout(function(){location.reload(); }, 200);}
+        //         // timeoutFunction();
+        // };
 
 
  }]);
