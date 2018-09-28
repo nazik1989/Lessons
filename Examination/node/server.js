@@ -64,6 +64,8 @@ app.post('/one_user_view', function (req, res) {
          console.log(typeof(req.files[0]));
         // console.log(req.files + typeof(req.files));
          //console.log("req.body.name is" + req.body.name);
+        var letters = /^[A-Za-z]+$/;
+        // var mailReg = /\S+@\S+\.\S+/;
         var errors ={};
         success = true;
 
@@ -72,16 +74,29 @@ app.post('/one_user_view', function (req, res) {
             errors.nameError = "Name is empty";
             success = false;
         }
-           if(req.body.lastname === undefined) {
+        if(!(req.body.name.match(letters))){
+            errors.nameLetterError = "Please input alphabet characters only";
+            success = false;}
 
-             errors.lastnameError = "Lastname is empty";
+           if(req.body.lastname === undefined) {
+            errors.lastnameError = "Lastname is empty";
             success = false;
             }
+
+        if(!(req.body.name.match(letters))){
+            errors.lastnameLetterError = "Please input alphabet characters only";
+            success = false;}
+
           if(req.body.email === undefined) {
 
              errors.emailError = "Email is empty";
              success = false;
             }
+        // if(mailReg.test(req.body.email)) {
+        //
+        //     errors.emailRegError = "Email is valid";
+        //     success = false;
+        // }
         if(req.files[0] === undefined) {
 
             errors.imageError = "Image is empty";
@@ -115,6 +130,7 @@ app.post('/one_user_view', function (req, res) {
 app.post('/update_user', function (req, res) {
    // console.log(req.body.hinId);
    // console.log(req.files + typeof(req.files));
+    var letters = /^[A-Za-z]+$/;
     var errors ={};
     success = true;
 
@@ -123,6 +139,11 @@ app.post('/update_user', function (req, res) {
         errors.nameError = "Name is empty";
         success = false;
     }
+
+    if(!(req.body.name.match(letters))){
+        errors.nameLetterError = "Please input alphabet characters only";
+        success = false;}
+
     if(req.body.lastname === undefined) {
 
         errors.lastnameError = "Lastname is empty";
